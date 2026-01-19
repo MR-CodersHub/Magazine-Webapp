@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | The Chronicle</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        body.loading {
+            opacity: 0;
+        }
+
+        body {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 loading">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-black text-white hidden md:block">
+            <div class="p-8 border-b border-white/10">
+                <a href="index.html" class="block">
+                    <h1 class="text-2xl font-black serif tracking-tight">THE CHRONICLE</h1>
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-white/40 block mt-1">Admin Panel</span>
+                </a>
+            </div>
+            <nav class="p-6 ">
+                <a href="#" class="block py-3 px-4 bg-white/10 rounded-lg text-sm font-medium">Dashboard</a>
+                <a href="index.html" class="block py-3 px-4 bg-white/10 rounded-lg text-sm font-medium">Home</a>
+            </nav>
+            <div class="p-6 absolute bottom-0 w-64 border-t border-white/10">
+                <button id="logout-btn"
+                    class="flex items-center gap-3 text-red-400 hover:text-red-300 transition-colors text-sm font-medium w-full text-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-100 p-8 flex justify-between items-center">
+                <h2 class="text-2xl font-bold serif">Dashboard</h2>
+                <div class="flex items-center gap-4">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-bold" id="admin-name">Loading...</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest">Administrator</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-8 max-w-7xl mx-auto">
+                <!-- Stats Grid -->
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Total Users</p>
+                        <p class="text-4xl font-black serif" id="total-users">-</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Total Articles</p>
+                        <p class="text-4xl font-black serif">128</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Total Messages</p>
+                        <p class="text-4xl font-black serif" id="total-messages">-</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Total Views</p>
+                        <p class="text-4xl font-black serif">85k</p>
+                    </div>
+                </div>
+
+                <!-- Recent Users Table -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-lg font-bold serif">Recent Users</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider text-xs font-bold">
+                                <tr>
+                                    <th class="px-6 py-4">Name</th>
+                                    <th class="px-6 py-4">Email</th>
+                                    <th class="px-6 py-4">Role</th>
+                                    <th class="px-6 py-4">Joined</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100" id="users-table-body">
+                                <tr>
+                                    <td colspan="4" class="px-6 py-4 text-center text-slate-500">Loading users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Messages Table -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mt-8">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-lg font-bold serif">Recent Inquiries</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider text-xs font-bold">
+                                <tr>
+                                    <th class="px-6 py-4">Name</th>
+                                    <th class="px-6 py-4">Email</th>
+                                    <th class="px-6 py-4">Subject</th>
+                                    <th class="px-6 py-4">Message</th>
+                                    <th class="px-6 py-4">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100" id="messages-table-body">
+                                <tr>
+                                    <td colspan="5" class="px-6 py-4 text-center text-slate-500">Loading messages...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Logic Script -->
+    <script type="module">
+        import { mockApi } from './assets/js/mock-api.js';
+
+        const adminName = document.getElementById('admin-name');
+        const logoutBtn = document.getElementById('logout-btn');
+        const totalUsersEl = document.getElementById('total-users');
+        const totalMessagesEl = document.getElementById('total-messages');
+        const usersTableBody = document.getElementById('users-table-body');
+        const messagesTableBody = document.getElementById('messages-table-body');
+
+
+        mockApi.onAuthStateChanged(async (user) => {
+            if (user) {
+                // Check if admin
+                try {
+                    const userData = await mockApi.getUserProfile(user.uid);
+
+                    if (userData && userData.role === 'admin') {
+                        document.body.classList.remove('loading');
+                        adminName.textContent = userData.full_name || user.email;
+
+                        // Load Data
+                        loadDashboardData();
+                    } else {
+                        // Not admin, redirect
+                        console.warn("User is not admin. Redirecting.");
+                        window.location.href = 'user_dashboard.html';
+                    }
+                } catch (error) {
+                    console.error("Auth Check Error:", error);
+                    alert("Error: Permission denied accessing user profile.");
+                }
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            mockApi.logout().then(() => {
+                window.location.href = 'login.html';
+            });
+        });
+
+        async function loadDashboardData() {
+            // 1. Fetch Users
+            try {
+                const users = await mockApi.getUsers();
+
+                // Count
+                totalUsersEl.textContent = users.length;
+
+                // Recent Users (last 5)
+                const recentUsers = [...users].reverse().slice(0, 5);
+
+                usersTableBody.innerHTML = '';
+                if (recentUsers.length === 0) {
+                    usersTableBody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">No users found.</td></tr>';
+                } else {
+                    recentUsers.forEach((u) => {
+                        const date = u.created_at ? new Date(u.created_at).toLocaleDateString() : 'N/A';
+                        const row = `
+                            <tr>
+                                <td class="px-6 py-4 font-medium">${u.full_name || 'N/A'}</td>
+                                <td class="px-6 py-4 text-slate-500">${u.email}</td>
+                                <td class="px-6 py-4">
+                                    <span class="${u.role === 'admin' ? 'bg-slate-800 text-white' : 'bg-indigo-50 text-indigo-600'} px-2 py-1 rounded text-xs font-bold uppercase tracking-wide">
+                                        ${u.role || 'user'}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-slate-500 whitespace-nowrap">${date}</td>
+                            </tr>
+                        `;
+                        usersTableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching users:", error);
+                usersTableBody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-red-500">Error loading users.</td></tr>`;
+            }
+
+            // 2. Fetch Messages
+            try {
+                const messages = await mockApi.getMessages();
+
+                // Count
+                totalMessagesEl.textContent = messages.length;
+
+                // Recent Messages (last 5)
+                const recentMessages = [...messages].reverse().slice(0, 5); // Assuming already sorted or simple push order
+
+                messagesTableBody.innerHTML = '';
+
+                if (recentMessages.length === 0) {
+                    messagesTableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-slate-500">No new messages.</td></tr>';
+                } else {
+                    recentMessages.forEach(msg => {
+                        const date = new Date(msg.created_at).toLocaleDateString();
+                        const row = `
+                            <tr>
+                                <td class="px-6 py-4 font-medium">${msg.name}</td>
+                                <td class="px-6 py-4 text-slate-500">${msg.email}</td>
+                                <td class="px-6 py-4">${msg.subject}</td>
+                                <td class="px-6 py-4 text-slate-600 max-w-xs truncate">${msg.message}</td>
+                                <td class="px-6 py-4 text-slate-500 whitespace-nowrap">${date}</td>
+                            </tr>
+                        `;
+                        messagesTableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+
+            } catch (error) {
+                console.error("Error fetching messages:", error);
+                messagesTableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-red-500">Error loading messages.</td></tr>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

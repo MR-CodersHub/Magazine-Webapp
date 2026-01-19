@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | The Chronicle</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;400;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bg-ink {
+            background-color: #050505;
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+            color: transparent;
+        }
+
+        .form-glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        input::placeholder {
+            color: #444;
+        }
+    </style>
+</head>
+
+<body class="bg-ink text-white sans antialiased selection:bg-indigo-500 overflow-hidden">
+
+    <div class="fixed inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=2000&q=80"
+            class="w-full h-full object-cover opacity-20 grayscale scale-110">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-ink to-ink"></div>
+    </div>
+
+    <div class="fixed -top-10 -left-10 z-0 select-none pointer-events-none">
+        <h2 class="text-outline text-[25vw] font-black serif uppercase leading-none tracking-tighter">
+            Hey Bruh
+        </h2>
+    </div>
+
+
+    <nav class="fixed top-12 left-0 w-full px-12 flex justify-between items-center z-50">
+        <span class="text-[11px] font-black tracking-[0.8em] uppercase">The Chronicle</span>
+        <a href="./index.html"
+            class="text-[10px] font-black border border-white/20 px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all">Back
+            to Site</a>
+    </nav>
+
+    <main class="relative z-10 min-h-screen w-full flex items-center justify-center p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full max-w-7xl items-center">
+
+            <div class="lg:col-span-6 space-y-8">
+                <h1 class="text-6xl md:text-8xl font-black serif tracking-tighter leading-tight">
+                    Secure your <br> <span class="italic font-light text-indigo-500">identity.</span>
+                </h1>
+                <p class="text-xl font-light text-slate-400 max-w-md leading-relaxed">
+                    Exclusive entry into the digital archives, print dispatches, and architectural case studies.
+                </p>
+            </div>
+
+            <div class="lg:col-span-6">
+                <div class="form-glass p-12 lg:p-20 relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-600/10 blur-[100px] rounded-full"></div>
+
+                    <form id="signup-form" class="space-y-12" autocomplete="off">
+                        <div class="space-y-8">
+                            <div
+                                class="border-b border-white/10 focus-within:border-indigo-500 transition-all duration-500 pb-2">
+                                <label
+                                    class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 block mb-2">Full
+                                    Name</label>
+                                <input type="text" id="full_name" placeholder="Full Name" required
+                                    class="w-full bg-transparent text-xl font-light outline-none py-2">
+                            </div>
+
+                            <div
+                                class="border-b border-white/10 focus-within:border-indigo-500 transition-all duration-500 pb-2">
+                                <label
+                                    class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 block mb-2">Email</label>
+                                <input type="email" id="email" placeholder="name@domain.com" required
+                                    class="w-full bg-transparent text-xl font-light outline-none py-2">
+                            </div>
+
+                            <div
+                                class="border-b border-white/10 focus-within:border-indigo-500 transition-all duration-500 pb-2 relative">
+                                <label
+                                    class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 block mb-2">Password</label>
+                                <div class="relative">
+                                    <input type="password" id="password" placeholder="••••••••" required
+                                        class="w-full bg-transparent text-xl font-light outline-none py-2 pr-10">
+                                    <button type="button" id="toggle-password"
+                                        class="absolute right-0 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5" id="eye-icon">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden"
+                                            id="eye-off-icon">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-8">
+                            <button type="submit" id="submit-btn"
+                                class="group relative overflow-hidden bg-white text-black px-12 py-6 text-[11px] font-black uppercase tracking-[0.5em] transition-all hover:pr-16">
+                                <span class="relative z-10">Create Account</span>
+                                <span
+                                    class="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">→</span>
+                            </button>
+
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest text-center">
+                                Existing Member? <a href="./login.html"
+                                    class="text-white hover:text-indigo-400 border-b border-white/20 transition-all">Authenticate
+                                    Here</a>
+                            </p>
+                            <p id="error-message" class="text-red-500 text-xs text-center hidden"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script type="module">
+        import { mockApi } from './assets/js/mock-api.js';
+
+        const signupForm = document.getElementById('signup-form');
+        const errorMsg = document.getElementById('error-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Toggle Password Visibility
+        const togglePasswordBtn = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eye-icon');
+        const eyeOffIcon = document.getElementById('eye-off-icon');
+
+        if (togglePasswordBtn) {
+            togglePasswordBtn.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+
+                if (type === 'text') {
+                    eyeIcon.classList.add('hidden');
+                    eyeOffIcon.classList.remove('hidden');
+                } else {
+                    eyeIcon.classList.remove('hidden');
+                    eyeOffIcon.classList.add('hidden');
+                }
+            });
+        }
+
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMsg.classList.add('hidden');
+            errorMsg.textContent = '';
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Creating...';
+
+            const fullName = document.getElementById('full_name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                console.log("Starting signup process...");
+                // 1. Create Authentication User & Profile
+                await mockApi.signup(email, password, fullName);
+
+                console.log("User created successfully.");
+
+                // 2. Redirect to Login
+                alert("Account created successfully!");
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error("Signup Error:", error);
+
+                errorMsg.textContent = "Error: " + error.message;
+                errorMsg.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Create Account';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

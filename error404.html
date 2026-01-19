@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | The Chronicle</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .error-ghost {
+            font-size: 25vw;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 sans antialiased flex flex-col min-h-screen">
+
+    <div class="relative flex-grow flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0 flex items-center justify-center z-0">
+            <span class="error-ghost serif font-black">404</span>
+        </div>
+
+        <main class="relative z-10 max-w-2xl px-6 text-center">
+
+            <span class="text-[10px] font-black uppercase tracking-[0.6em] text-indigo-600 mb-8 block">Information
+                Error</span>
+
+            <h1 class="text-5xl md:text-7xl font-black serif tracking-tighter leading-tight mb-6">
+                A quiet end to <br><span class="italic font-light text-slate-400">the search.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-12">
+                The page you are looking for may have been moved, archived, or no longer exists within our current
+                ledger.
+            </p>
+
+            <div class="space-y-10">
+                <a href="/"
+                    class="inline-block bg-black text-white px-16 py-5 text-[10px] font-black uppercase tracking-[0.4em] hover:bg-indigo-600 transition-all rounded-sm shadow-xl">
+                    Return to Home
+                </a>
+
+                <nav
+                    class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 pt-8 border-t border-slate-100">
+                    <a href="/stories"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Latest
+                        Articles</a>
+                    <a href="/categories"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Browse
+                        Categories</a>
+                    <a href="/contact"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Contact
+                        Bureau</a>
+                </nav>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
