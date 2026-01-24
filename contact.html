@@ -243,16 +243,17 @@
 
     </main>
 
-    <footer class="bg-[#0A0A0A] text-white pt-24 pb-12 overflow-hidden">
+    <footer class="bg-gray-100 text-black pt-24 pb-12 overflow-hidden">
         <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
 
             <div class="flex flex-col lg:flex-row justify-between items-start gap-16 pb-20 border-b border-white/10">
 
                 <div class="space-y-12 max-w-sm">
-                    <h2 class="text-4xl md:text-5xl font-black serif tracking-tighter uppercase">The Chronicle</h2>
+                    <h2 class="text-4xl md:text-5xl font-black serif tracking-tighter uppercase text-black">The
+                        Chronicle</h2>
                     <div class="flex flex-wrap gap-6">
                         <a href="https://www.facebook.com/"
-                            class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+                            class="text-black hover:text-indigo-600 transition-all transform hover:-translate-y-1"
                             aria-label="Facebook">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -260,7 +261,7 @@
                             </svg>
                         </a>
                         <a href="https://www.x.com/"
-                            class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+                            class="text-black hover:text-indigo-600 transition-all transform hover:-translate-y-1"
                             aria-label="X">
                             <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -269,7 +270,7 @@
                         </a>
 
                         <a href="https://www.instagram.com/"
-                            class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+                            class="text-black hover:text-indigo-600 transition-all transform hover:-translate-y-1"
                             aria-label="Instagram">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -292,10 +293,10 @@
                     class="flex flex-col md:flex-row items-center gap-10 lg:gap-16 max-w-2xl bg-white/5 p-8 border border-white/10">
                     <div class="space-y-6 flex-1">
                         <p class="text-xs font-bold uppercase tracking-[0.4em] text-indigo-400">Limited Edition</p>
-                        <h3 class="text-3xl font-black serif leading-tight">Stories for the <span
-                                class="italic font-medium text-slate-400">modern era.</span></h3>
+                        <h3 class="text-3xl font-black serif leading-tight text-black">Stories for the <span
+                                class="italic font-medium text-gray-600">modern era.</span></h3>
                         <button onclick="showPopup()"
-                            class="bg-indigo-600 hover:bg-white hover:text-black transition-all px-8 py-4 text-[10px] font-black uppercase tracking-widest">
+                            class="bg-indigo-600 hover:bg-black hover:text-white transition-all px-8 py-4 text-[10px] font-black uppercase tracking-widest text-white">
                             Subscribe Now
                         </button>
                     </div>
@@ -307,22 +308,15 @@
                 </div>
             </div>
 
-            <nav class="py-12">
+            <nav class="py-12 flex flex-col md:flex-row justify-between items-center gap-8">
                 <ul
-                    class="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-                    <li><a href="featured.html" class="hover:text-white transition-colors">Featured</a></li>
-                    <li><a href="latest.html" class="hover:text-white transition-colors">Latest</a></li>
-                    <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    class="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 text-[10px] font-black uppercase tracking-[0.3em] text-gray-600">
+                    <li><a href="featured.html" class="hover:text-indigo-600 transition-colors">Featured</a></li>
+                    <li><a href="latest.html" class="hover:text-indigo-600 transition-colors">Latest</a></li>
+                    <li><a href="blog.html" class="hover:text-indigo-600 transition-colors">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-indigo-600 transition-colors">Contact</a></li>
                 </ul>
-            </nav>
-
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                <p class="text-[10px] font-medium text-slate-500 tracking-widest">&copy; 2026 DESIGNED BY MR CODERS HUB.
-                    ALL
-                    RIGHTS RESERVED.</p>
-
-                <div class="flex items-center gap-8 opacity-20 grayscale uppercase">
+                <div class="flex items-center gap-8 text-gray-500 tracking-[0.4em] uppercase">
                     <a href="./privacy-policy.html"><span class="text-[10px] font-bold tracking-tighter">Privacy
                             Policy</span></a>
                     <a href="./faq.html"><span class="text-[10px] font-bold tracking-tighter">FAQ</span></a>
@@ -330,6 +324,14 @@
                             Service</span></a>
 
                 </div>
+            </nav>
+
+            <div class="pt-12 border-t border-gray-300 ">
+                <p class="text-[10px] font-medium text-gray-600 justify-center text-center tracking-widest">&copy; 2026
+                    DESIGNED BY MR CODERS HUB. ALL
+                    RIGHTS RESERVED.</p>
+
+
             </div>
         </div>
     </footer>
