@@ -1,30 +1,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latest | The Chronicle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest | The Chronicle</title>
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
-    <style> 
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
 
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
+    h1,
+    h2,
+    h3,
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
 </head>
 
 <body>
-    <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+  <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0 flex items-center">
@@ -94,105 +94,101 @@
       </div>
     </div>
   </header>
-    <section class="max-w-screen-2xl mx-auto px-6 lg:px-12 py-24 bg-white">
-        <div class="flex items-center justify-between mb-12 border-b border-slate-900 pb-4">
-            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-slate-900">Latest Stories</h2>
-            <a href="#"
-                class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">View
-                All Archive</a>
+  <section class="max-w-screen-2xl mx-auto px-6 lg:px-12 py-24 bg-white">
+    <div class="flex items-center justify-between mb-12 border-b border-slate-900 pb-4">
+      <h2 class="text-xs font-black uppercase tracking-[0.5em] text-slate-900">Latest Stories</h2>
+      <a href="#"
+        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">View
+        All Archive</a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+      <article class="lg:col-span-7 group cursor-pointer">
+        <div class="relative overflow-hidden aspect-[16/10] mb-8 bg-slate-100">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
+            alt="Lead Story Image"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0">
+          <div class="absolute top-6 left-6">
+            <span
+              class="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-black uppercase tracking-widest text-indigo-600">Architectural
+              Innovation</span>
+          </div>
         </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
-            <article class="lg:col-span-7 group cursor-pointer">
-                <div class="relative overflow-hidden aspect-[16/10] mb-8 bg-slate-100">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                        alt="Lead Story Image"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0">
-                    <div class="absolute top-6 left-6">
-                        <span
-                            class="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-black uppercase tracking-widest text-indigo-600">Architectural
-                            Innovation</span>
-                    </div>
-                </div>
-                <div class="max-w-2xl">
-                    <h3
-                        class="text-4xl md:text-5xl font-black serif leading-tight mb-4 group-hover:underline decoration-1 underline-offset-8">
-                        The silent evolution of urban spaces in the post-digital age.
-                    </h3>
-                    <p class="text-lg text-slate-500 font-light leading-relaxed mb-6">
-                        As cities densify, architects are turning to modular wood and adaptive reuse to create
-                        sustainable sanctuaries in the middle of concrete jungles.
-                    </p>
-                    <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                        <span>Julian Thorne</span>
-                        <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
-                        <span>12 Min Read</span>
-                    </div>
-                </div>
-            </article>
-
-            <div class="lg:col-span-5 space-y-12">
-
-                <article class="flex gap-6 group cursor-pointer">
-                    <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=400&q=80"
-                            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <span
-                            class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Culture</span>
-                        <a href="./category7.html">
-                            <h4
-                                class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
-                                Reclaiming the analog: Why Gen Z is buying film.
-                            </h4>
-                        </a>
-                        <p class="text-sm text-slate-500 line-clamp-2 font-light">The chemical process offers a tactile
-                            reality that pixels simply cannot replicate.</p>
-                    </div>
-                </article>
-
-                <article class="flex gap-6 group cursor-pointer">
-                    <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80"
-                            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <span class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Health</span>
-                        <a href="./category5.html">
-                            <h4
-                                class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
-                                The neural benefits of deep-focus reading.
-                            </h4>
-                        </a>
-                        <p class="text-sm text-slate-500 line-clamp-2 font-light">Neuroscience suggests that long-form
-                            content improves cognitive endurance.</p>
-                    </div>
-                </article>
-
-                <article class="flex gap-6 group cursor-pointer border-t border-slate-50 pt-8">
-                    <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=400&q=80"
-                            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <span class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Design</span>
-                        <a href="./category6.html">
-                            <h4
-                                class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
-                                Minimalism is dead. Long live the new maximalism.
-                            </h4>
-                        </a>
-                        <p class="text-sm text-slate-500 line-clamp-2 font-light">Designers are embracing clutter and
-                            color as a form of personal protest.</p>
-                    </div>
-                </article>
-
-            </div>
+        <div class="max-w-2xl">
+          <h3
+            class="text-4xl md:text-5xl font-black serif leading-tight mb-4 group-hover:underline decoration-1 underline-offset-8">
+            The silent evolution of urban spaces in the post-digital age.
+          </h3>
+          <p class="text-lg text-slate-500 font-light leading-relaxed mb-6">
+            As cities densify, architects are turning to modular wood and adaptive reuse to create
+            sustainable sanctuaries in the middle of concrete jungles.
+          </p>
+          <div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <span>Julian Thorne</span>
+            <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
+            <span>12 Min Read</span>
+          </div>
         </div>
-    </section>
-    <footer class="bg-[#0A0A0A] text-white pt-24 pb-12 overflow-hidden">
+      </article>
+
+      <div class="lg:col-span-5 space-y-12">
+
+        <article class="flex gap-6 group cursor-pointer">
+          <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Culture</span>
+            <a href="./category7.html">
+              <h4 class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
+                Reclaiming the analog: Why Gen Z is buying film.
+              </h4>
+            </a>
+            <p class="text-sm text-slate-500 line-clamp-2 font-light">The chemical process offers a tactile
+              reality that pixels simply cannot replicate.</p>
+          </div>
+        </article>
+
+        <article class="flex gap-6 group cursor-pointer">
+          <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Health</span>
+            <a href="./category5.html">
+              <h4 class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
+                The neural benefits of deep-focus reading.
+              </h4>
+            </a>
+            <p class="text-sm text-slate-500 line-clamp-2 font-light">Neuroscience suggests that long-form
+              content improves cognitive endurance.</p>
+          </div>
+        </article>
+
+        <article class="flex gap-6 group cursor-pointer border-t border-slate-50 pt-8">
+          <div class="w-1/3 aspect-square overflow-hidden bg-slate-100 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-2">Design</span>
+            <a href="./category6.html">
+              <h4 class="text-xl font-bold serif leading-snug mb-2 group-hover:text-indigo-900 transition-colors">
+                Minimalism is dead. Long live the new maximalism.
+              </h4>
+            </a>
+            <p class="text-sm text-slate-500 line-clamp-2 font-light">Designers are embracing clutter and
+              color as a form of personal protest.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <footer class="bg-[#0A0A0A] text-white pt-24 pb-12 overflow-hidden">
     <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
 
       <div class="flex flex-col lg:flex-row justify-between items-start gap-16 pb-20 border-b border-white/10">
@@ -200,30 +196,33 @@
         <div class="space-y-12 max-w-sm">
           <h2 class="text-4xl md:text-5xl font-black serif tracking-tighter uppercase">The Chronicle</h2>
           <div class="flex flex-wrap gap-6">
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+            <a href="https://www.facebook.com/"
+              class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
               aria-label="Facebook">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
             </a>
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
-              aria-label="X">
+            <a href="https://www.x.com/"
+              class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1" aria-label="X">
               <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
             </a>
 
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+            <a href="https://www.instagram.com/"
+              class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
               aria-label="Instagram">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
               </svg>
             </a>
 
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
+            <a href="https://www.pinterest.com/"
+              class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
               aria-label="Pinterest">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -255,15 +254,15 @@
       <nav class="py-12">
         <ul
           class="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-          <li><a href="categories.html" class="hover:text-white transition-colors">Categories</a></li>
           <li><a href="featured.html" class="hover:text-white transition-colors">Featured</a></li>
           <li><a href="latest.html" class="hover:text-white transition-colors">Latest</a></li>
           <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
         </ul>
       </nav>
 
       <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <p class="text-[10px] font-medium text-slate-500 tracking-widest">&copy; 2026 THE CHRONICLE MEDIA GROUP. ALL
+        <p class="text-[10px] font-medium text-slate-500 tracking-widest">&copy; 2026 DESIGNED BY MR CODERS HUB. ALL
           RIGHTS RESERVED.</p>
 
         <div class="flex items-center gap-8 opacity-20 grayscale uppercase">
