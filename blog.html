@@ -34,11 +34,35 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0 flex items-center">
-          <span class="text-3xl font-black tracking-tighter uppercase serif">The Chronicle</span>
+          <a href="./index.html">
+            <span class="text-3xl font-black tracking-tighter uppercase serif">The Chronicle</span>
+          </a>
         </div>
         <nav class="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
           <a href="./index.html" class="hover:text-indigo-600 transition">Home</a>
           <a href="./home-2.html" class="hover:text-indigo-600 transition">Design Edition</a>
+           <div class="relative group cursor-pointer h-full flex items-center">
+            <span class="hover:text-indigo-600 transition py-8">Categories ↓</span>
+
+            <!-- Dropdown Menu -->
+            <div
+              class="absolute top-16 left-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="./category1.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Technology</a>
+                <a href="./category2.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Culture</a>
+                <a href="./category3.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Business</a>
+                <a href="./category4.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Travel</a>
+                <a href="./category5.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Health</a>
+                <a href="./category6.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-indigo-600 transition-colors">Design</a>
+              </div>
+            </div>
+          </div>
           <a href="./featured.html" class="hover:text-indigo-600 transition">Featured</a>
           <a href="./latest.html" class="hover:text-indigo-600 transition">Latest</a>
           <a href="./blog.html" class="hover:text-indigo-600 transition">Blog</a>
@@ -125,7 +149,7 @@
             Minimalist Workspaces.</h2>
           <p class="text-xl text-slate-500 font-light leading-relaxed">Exploring the boundaries of artificial intuition
             and the physical architects of the next consciousness.</p>
-          <button
+          <button onclick="window.location.href='category1.html'"
             class="bg-slate-900 text-white px-10 py-5 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors">Read
             Guide</button>
         </div>
@@ -161,7 +185,7 @@
           Architecture at the Edge.</h3>
         <p class="text-slate-500 leading-relaxed font-light mb-6">Brutalist structures and their psychological impact on
           modern living spaces.</p>
-        <a href="#"
+        <a href="category3.html"
           class="text-[10px] font-black uppercase tracking-widest border-b border-slate-200 pb-2 hover:border-indigo-600 transition-colors">Read
           More</a>
       </article>
@@ -177,7 +201,7 @@
           The Ethics of Generative Interface Design.</h3>
         <p class="text-slate-500 leading-relaxed font-light mb-6">When algorithms start designing for humans, who owns
           the aesthetic output?</p>
-        <a href="#"
+        <a href="category6.html"
           class="text-[10px] font-black uppercase tracking-widest border-b border-slate-200 pb-2 hover:border-indigo-600 transition-colors">Read
           More</a>
       </article>
@@ -190,7 +214,9 @@
         <!-- Brand & About -->
         <div class="space-y-8">
           <div>
-            <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle</h2>
+            <a href="./index.html">
+              <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle</h2>
+            </a>
             <p class="mt-4 text-sm text-slate-500 leading-relaxed font-light">
               Exploring the intersection of design, technology, and contemporary culture. A publication for the modern
               mind.
