@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The New Luxury | The Chronicle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The New Luxury | The Chronicle</title>
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
-    <style>
-        .serif { font-family: 'Playfair Display', serif; }
-        .sans { font-family: 'Inter', sans-serif; }
-        .vertical-text { writing-mode: vertical-rl; }
-    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;400;900&display=swap"
+    rel="stylesheet">
+  <style>
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .sans {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .vertical-text {
+      writing-mode: vertical-rl;
+    }
+  </style>
 </head>
+
 <body class="bg-[#FDFDFD] text-[#1a1a1a] antialiased overflow-x-hidden">
 
-     <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+  <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex-shrink-0 flex items-center">
@@ -24,6 +36,7 @@
 
         <nav class="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
           <a href="./index.html" class="hover:text-indigo-600 transition">Home</a>
+          <a href="./home-2.html" class="hover:text-indigo-600 transition">Design Edition</a>
           <div class="relative group cursor-pointer h-full flex items-center">
             <span class="hover:text-indigo-600 transition py-8">Categories ↓</span>
 
@@ -62,7 +75,7 @@
             </span>
 
             <!-- Dropdown Menu -->
-            <div
+            <div id="auth-dropdown"
               class="absolute top-16 right-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
               <div class="py-2">
                 <a href="./login.html"
@@ -76,7 +89,7 @@
         </nav>
 
         <div class="md:hidden flex items-center">
-          <button class="p-2">
+          <button id="mobile-menu-btn" class="p-2">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" />
             </svg>
@@ -84,174 +97,201 @@
         </div>
       </div>
     </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-8 px-4 space-y-4 shadow-xl">
+      <div class="flex flex-col space-y-4 pt-8">
+        <a href="./index.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Home</a>
+        <a href="./home-2.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Design Edition</a>
+        <a href="./featured.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Featured</a>
+        <a href="./latest.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Latest</a>
+        <a href="./blog.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Blog</a>
+        <a href="./contact.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Contact</a>
+        <div class="pt-4 border-t border-gray-100 flex flex-col space-y-4">
+          <a href="./login.html" class="text-sm font-bold uppercase tracking-widest text-indigo-600">Log In</a>
+          <a href="./signup.html" class="text-sm font-bold uppercase tracking-widest text-indigo-600">Sign Up</a>
+        </div>
+      </div>
+    </nav>
   </header>
 
-    <div class="h-screen w-screen grid grid-cols-1 lg:grid-cols-12 border-b border-black">
-        <div class="lg:col-span-7 flex flex-col justify-between p-8 lg:px-16 lg:py-24 bg-white">
-            <div class="flex justify-between items-start">
-                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-indigo-600">Issue 44 // 2026</span>
-                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300">Archive Narrative</span>
-            </div>
-            
-            <h1 class="text-[12vw] font-black serif leading-[0.8] tracking-tighter uppercase">
-                The <br> <span class="italic font-light text-slate-400">New</span> <br> Luxury.
-            </h1>
+  <div class="h-screen w-screen grid grid-cols-1 lg:grid-cols-12 border-b border-black">
+    <div class="lg:col-span-7 flex flex-col justify-between p-8 lg:px-16 lg:py-24 bg-white">
+      <div class="flex justify-between items-start">
+        <span class="text-[10px] font-black uppercase tracking-[0.5em] text-indigo-600">Issue 44 // 2026</span>
+        <span class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300">Archive Narrative</span>
+      </div>
 
-            <div class="max-w-md">
-                <p class="text-xl font-light leading-relaxed text-slate-500 italic">
-                    "The Best Boutique Hotels in Scandinavia"
-                </p>
-            </div>
-        </div>
+      <h1 class="text-[12vw] font-black serif leading-[0.8] tracking-tighter uppercase">
+        The <br> <span class="italic font-light text-slate-400">New</span> <br> Luxury.
+      </h1>
 
-        <div class="lg:col-span-5 relative bg-black overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" 
-                 class="w-full h-full object-cover grayscale contrast-125 opacity-80 transition-transform duration-[2000ms] hover:scale-110">
-            <div class="absolute bottom-12 right-12 vertical-text text-[10px] font-black uppercase tracking-[0.8em] text-white/40">
-                Photography by Anupam Chaudhary
-            </div>
-        </div>
+      <div class="max-w-md">
+        <p class="text-xl font-light leading-relaxed text-slate-500 italic">
+          "The Best Boutique Hotels in Scandinavia"
+        </p>
+      </div>
     </div>
 
-    <main class="w-screen">
-        
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-black">
-            <div class="lg:col-span-4 p-8 lg:p-16 border-r border-black">
-                <h2 class="text-4xl font-black serif uppercase tracking-tighter mb-8">Introduction</h2>
-                <div class="space-y-6 text-sm font-bold uppercase tracking-widest text-indigo-600">
-                    <p>01 — Sensory Deprivation</p>
-                    <p>02 — Architectural Ethics</p>
-                    <p>03 — The Future of Focus</p>
-                </div>
-            </div>
-            <div class="lg:col-span-8 p-8 lg:p-24 bg-slate-50">
-                <p class="text-3xl md:text-5xl font-light leading-[1.4] text-slate-800 serif italic">
-                    Silence is no longer a natural state. It is a manufactured luxury, a commodity that must be built into the very foundations of where we live and work.
-                </p>
-            </div>
-        </section>
+    <div class="lg:col-span-5 relative bg-black overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
+        class="w-full h-full object-cover grayscale contrast-125 opacity-80 transition-transform duration-[2000ms] hover:scale-110">
+      <div
+        class="absolute bottom-12 right-12 vertical-text text-[10px] font-black uppercase tracking-[0.8em] text-white/40">
+        Photography by Anupam Chaudhary
+      </div>
+    </div>
+  </div>
 
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-            
-            <div class="lg:col-span-7 p-8 lg:p-32 space-y-12 border-r border-black">
-                <div class="max-w-2xl">
-                    <h3 class="text-xs font-black uppercase tracking-[0.6em] text-slate-400 mb-12">Narrative Entry</h3>
-                    <div class="sans text-lg md:text-xl leading-relaxed text-slate-700 space-y-8">
-                        <p>
-                            The shift began in the dense urban centers of Northern Europe. Architects, once obsessed with the "open plan" and the constant collision of ideas, noticed a growing fatigue. The lack of acoustic boundaries led not to collaboration, but to a withdrawal—a mental retreat into headphones and digital silos.
-                        </p>
-                        <p>
-                            Contemporary design is now leaning into the "deadzone." These are spaces where materials are chosen specifically for their ability to absorb energy. Raw felt, unpolished cedar, and porous concrete are being utilized not just for their aesthetic honesty, but for their functional silence.
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <main class="w-screen">
 
-            <div class="lg:col-span-5 p-0 flex flex-col">
-                <div class="h-1/2 border-b border-black overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80" 
-                         class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0">
-                </div>
-                <div class="h-1/2 p-12 bg-black text-white flex flex-col justify-between">
-                    <div>
-                        <span class="text-[9px] font-black uppercase tracking-[0.5em] text-indigo-400 block mb-6">Structural Note</span>
-                        <p class="text-lg font-light italic leading-relaxed text-slate-400">
-                            "The goal is the preservation of the individual within the collective. When the environment no longer demands attention through noise, the internal monologue is allowed to finish."
-                        </p>
-                    </div>
-                    <div class="flex justify-between items-end">
-                        <span class="text-6xl font-black serif text-white/10 italic">02</span>
-                        <button class="px-10 py-4 border border-white/20 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                            Explore Blueprints
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    
-    <footer class="bg-[#0A0A0A] text-white pt-24 pb-12 overflow-hidden">
-    <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-
-      <div class="flex flex-col lg:flex-row justify-between items-start gap-16 pb-20 border-b border-white/10">
-
-        <div class="space-y-12 max-w-sm">
-          <h2 class="text-4xl md:text-5xl font-black serif tracking-tighter uppercase">The Chronicle</h2>
-          <div class="flex flex-wrap gap-6">
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
-              aria-label="Facebook">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
-              aria-label="X">
-              <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-              </svg>
-            </a>
-
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
-              aria-label="Instagram">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </a>
-
-            <a href="#" class="text-slate-400 hover:text-indigo-600 transition-all transform hover:-translate-y-1"
-              aria-label="Pinterest">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12.017 0C5.396 0 0 5.397 0 12.017c0 5.078 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.965 1.406-5.965s-.359-.718-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.259 7.929-7.259 4.164 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.607 0 12.031-5.396 12.031-12.017C24.02 5.397 18.637 0 12.017 0z" />
-              </svg>
-            </a>
-          </div>
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-black">
+      <div class="lg:col-span-4 p-8 lg:p-16 border-r border-black">
+        <h2 class="text-4xl font-black serif uppercase tracking-tighter mb-8">Introduction</h2>
+        <div class="space-y-6 text-sm font-bold uppercase tracking-widest text-indigo-600">
+          <p>01 — Sensory Deprivation</p>
+          <p>02 — Architectural Ethics</p>
+          <p>03 — The Future of Focus</p>
         </div>
+      </div>
+      <div class="lg:col-span-8 p-8 lg:p-24 bg-slate-50">
+        <p class="text-3xl md:text-5xl font-light leading-[1.4] text-slate-800 serif italic">
+          Silence is no longer a natural state. It is a manufactured luxury, a commodity that must be built into the
+          very foundations of where we live and work.
+        </p>
+      </div>
+    </section>
 
-        <div
-          class="flex flex-col md:flex-row items-center gap-10 lg:gap-16 max-w-2xl bg-white/5 p-8 border border-white/10">
-          <div class="space-y-6 flex-1">
-            <p class="text-xs font-bold uppercase tracking-[0.4em] text-indigo-400">Limited Edition</p>
-            <h3 class="text-3xl font-black serif leading-tight">Stories for the <span
-                class="italic font-medium text-slate-400">modern era.</span></h3>
-            <button onclick="showPopup()"
-              class="bg-indigo-600 hover:bg-white hover:text-black transition-all px-8 py-4 text-[10px] font-black uppercase tracking-widest">
-              Subscribe Now
-            </button>
-          </div>
-          <div
-            class="hidden sm:block w-32 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80"
-              alt="Latest Issue" class="w-full grayscale contrast-125">
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+
+      <div class="lg:col-span-7 p-8 lg:p-32 space-y-12 border-r border-black">
+        <div class="max-w-2xl">
+          <h3 class="text-xs font-black uppercase tracking-[0.6em] text-slate-400 mb-12">Narrative Entry</h3>
+          <div class="sans text-lg md:text-xl leading-relaxed text-slate-700 space-y-8">
+            <p>
+              The shift began in the dense urban centers of Northern Europe. Architects, once obsessed with the "open
+              plan" and the constant collision of ideas, noticed a growing fatigue. The lack of acoustic boundaries led
+              not to collaboration, but to a withdrawal—a mental retreat into headphones and digital silos.
+            </p>
+            <p>
+              Contemporary design is now leaning into the "deadzone." These are spaces where materials are chosen
+              specifically for their ability to absorb energy. Raw felt, unpolished cedar, and porous concrete are being
+              utilized not just for their aesthetic honesty, but for their functional silence.
+            </p>
           </div>
         </div>
       </div>
 
-      <nav class="py-12">
-        <ul
-          class="flex flex-wrap justify-center lg:justify-start gap-x-12 gap-y-6 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-          <li><a href="categories.html" class="hover:text-white transition-colors">Categories</a></li>
-          <li><a href="featured.html" class="hover:text-white transition-colors">Featured</a></li>
-          <li><a href="latest.html" class="hover:text-white transition-colors">Latest</a></li>
-          <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-        </ul>
-      </nav>
-
-      <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <p class="text-[10px] font-medium text-slate-500 tracking-widest">&copy; 2026 THE CHRONICLE MEDIA GROUP. ALL
-          RIGHTS RESERVED.</p>
-
-        <div class="flex items-center gap-8 opacity-20 grayscale uppercase">
-          <a href="./privacy-policy.html"><span class="text-[10px] font-bold tracking-tighter">Privacy Policy</span></a>
-          <a href="./faq.html"><span class="text-[10px] font-bold tracking-tighter">FAQ</span></a>
-          <a href="./tos.html"><span class="text-[10px] font-bold tracking-tighter">Terms of Service</span></a>
-
+      <div class="lg:col-span-5 p-0 flex flex-col">
+        <div class="h-1/2 border-b border-black overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80"
+            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0">
         </div>
+        <div class="h-1/2 p-12 bg-black text-white flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-black uppercase tracking-[0.5em] text-indigo-400 block mb-6">Structural
+              Note</span>
+            <p class="text-lg font-light italic leading-relaxed text-slate-400">
+              "The goal is the preservation of the individual within the collective. When the environment no longer
+              demands attention through noise, the internal monologue is allowed to finish."
+            </p>
+          </div>
+          <div class="flex justify-between items-end">
+            <span class="text-6xl font-black serif text-white/10 italic">02</span>
+            <button
+              class="px-10 py-4 border border-white/20 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+              Explore Blueprints
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="bg-gray-100 text-black pt-20 pb-12 mt-20 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
+        <!-- Brand & About -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle</h2>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed font-light">
+              Exploring the intersection of design, technology, and contemporary culture. A publication for the modern
+              mind.
+            </p>
+          </div>
+          <div class="flex gap-5">
+            <a href="https://www.facebook.com/" class="text-slate-400 hover:text-indigo-600 transition-all"
+              aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.x.com/" class="text-slate-400 hover:text-indigo-600 transition-all" aria-label="X">
+              <svg class="w-4 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/" class="text-slate-400 hover:text-indigo-600 transition-all"
+              aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Navigation</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./featured.html" class="hover:text-indigo-600 transition-colors">Featured</a></li>
+            <li><a href="./latest.html" class="hover:text-indigo-600 transition-colors">Latest</a></li>
+            <li><a href="./blog.html" class="hover:text-indigo-600 transition-colors">Blog</a></li>
+            <li><a href="./contact.html" class="hover:text-indigo-600 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Legal</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./privacy-policy.html" class="hover:text-indigo-600 transition-colors">Privacy Policy</a></li>
+            <li><a href="./tos.html" class="hover:text-indigo-600 transition-colors">Terms of Service</a></li>
+            <li><a href="./faq.html" class="hover:text-indigo-600 transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Dispatch -->
+        <div class="bg-white p-8 border border-gray-200">
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-indigo-600 mb-4">Weekly Dispatch</h3>
+          <p class="text-[11px] text-slate-500 leading-relaxed font-light mb-6">
+            A curated selection of the week's most important stories.
+          </p>
+          <button onclick="showPopup()"
+            class="w-full bg-slate-900 text-white py-4 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-100">
+            Join the Collective
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">
+          &copy; 2026 THE CHRONICLE MEDIA GROUP. ALL RIGHTS RESERVED.
+        </p>
+        <p class="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">
+          Designed by MR Coders Hub
+        </p>
       </div>
     </div>
   </footer>
@@ -353,7 +393,7 @@
       document.getElementById('newsletter-success').classList.remove('hidden');
     }
   </script>
-
+  <script type="module" src="./assets/js/auth.js"></script>
 </body>
 
 </html>

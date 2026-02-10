@@ -4,35 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | The Chronicle</title>
+    <title>DESIGN EDITION | The Chronicle</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;400;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
 
+        h1,
+        h2,
+        h3,
         .serif {
             font-family: 'Playfair Display', serif;
         }
 
-        .outline-text {
-            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
-            color: transparent;
+        .vogue-line {
+            height: 1px;
+            background: #4f46e5;
+            width: 0;
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        input:focus,
-        textarea:focus {
-            border-color: black !important;
-            outline: none;
+        .group:hover .vogue-line {
+            width: 100%;
         }
     </style>
 </head>
 
-<body class="bg-[#FDFDFD] text-[#1a1a1a] antialiased">
+<body class="bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
 
     <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,140 +134,157 @@
         </nav>
     </header>
 
-    <main class="max-w-screen-2xl mx-auto px-6 lg:px-12 pb-48">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 mt-8">
-
-            <section class="lg:col-span-7">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] mb-12 text-indigo-600">The Inquiry Form
-                </h2>
-                <form id="contact-form" class="space-y-12">
-                    <div id="success-message"
-                        class="hidden bg-indigo-50 text-indigo-700 p-4 rounded-sm border border-indigo-100 text-sm font-medium">
-                        Message dispatched successfully. We requested to hear from you.
-                    </div>
-                    <div id="error-message"
-                        class="hidden bg-red-50 text-red-700 p-4 rounded-sm border border-red-100 text-sm font-medium">
-                        Unable to dispatch message. Please ensure all fields are verified.
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="border-b border-slate-200 focus-within:border-black transition-colors pb-2">
-                            <label
-                                class="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Identify
-                                yourself</label>
-                            <input type="text" id="name" placeholder="Full Name" required
-                                class="w-full bg-transparent text-lg font-light placeholder-slate-300 py-2">
+    <main>
+        <!-- Hero Split Layout -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="text-xs font-black uppercase tracking-[0.4em] text-indigo-600 mb-6 block">Curated
+                        Architecture</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-black serif leading-[0.9] tracking-tighter mb-8 text-slate-900">
+                        The <span class="italic font-medium text-slate-400">Silent</span> <br>Geometry.
+                    </h1>
+                    <p class="text-xl text-slate-500 font-light leading-relaxed max-w-lg mb-12">
+                        Exploring the intersection of Scandinavian minimalism and the raw brutalism of contemporary
+                        urban landscape design.
+                    </p>
+                    <div class="flex items-center gap-8 border-t border-gray-100 pt-10">
+                        <div>
+                            <span
+                                class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Issue
+                                No.</span>
+                            <span class="text-xl font-black serif">42</span>
                         </div>
-                        <div class="border-b border-slate-200 focus-within:border-black transition-colors pb-2">
-                            <label
-                                class="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Reach
-                                you at</label>
-                            <input type="email" id="email" placeholder="Email Address" required
-                                class="w-full bg-transparent text-lg font-light placeholder-slate-300 py-2">
+                        <div>
+                            <span
+                                class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Theme</span>
+                            <span class="text-xl font-black serif italic">Structural Form</span>
                         </div>
-                    </div>
-
-                    <div class="border-b border-slate-200 focus-within:border-black transition-colors pb-2">
-                        <label class="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Subject
-                            of Interest</label>
-                        <select id="subject"
-                            class="w-full bg-transparent text-lg font-light py-2 appearance-none cursor-pointer">
-                            <option value="Editorial Pitch">Editorial Pitch</option>
-                            <option value="Brand Partnership">Brand Partnership</option>
-                            <option value="General Feedback">General Feedback</option>
-                            <option value="Press Inquiry">Press Inquiry</option>
-                        </select>
-                    </div>
-
-                    <div class="border-b border-slate-200 focus-within:border-black transition-colors">
-                        <label class="text-[9px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Your
-                            Message</label>
-                        <textarea id="message" rows="4" placeholder="Briefly describe your request..." required
-                            class="w-full bg-transparent text-lg font-light placeholder-slate-300 py-2 resize-none"></textarea>
-                    </div>
-
-                    <div class="pt-4">
-                        <button type="submit" id="submit-btn"
-                            class="group relative overflow-hidden bg-black text-white px-16 py-6 text-[10px] font-black uppercase tracking-[0.4em] transition-all hover:bg-indigo-600 rounded-sm shadow-xl">
-                            <span class="relative z-10">Dispatch Message</span>
-                        </button>
-                    </div>
-                </form>
-
-                <script type="module">
-                    import { mockApi } from './assets/js/mock-api.js';
-
-                    const contactForm = document.getElementById('contact-form');
-                    const successMsg = document.getElementById('success-message');
-                    const errorMsg = document.getElementById('error-message');
-                    const submitBtn = document.getElementById('submit-btn');
-
-                    contactForm.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        successMsg.classList.add('hidden');
-                        errorMsg.classList.add('hidden');
-                        submitBtn.disabled = true;
-                        submitBtn.querySelector('span').textContent = 'Sending...';
-
-                        const name = document.getElementById('name').value;
-                        const email = document.getElementById('email').value;
-                        const subject = document.getElementById('subject').value;
-                        const message = document.getElementById('message').value;
-
-                        try {
-                            console.log("Attempting to send message via Mock API...");
-                            await mockApi.sendMessage({ name, email, subject, message });
-
-                            console.log("Message sent successfully");
-                            successMsg.classList.remove('hidden');
-                            contactForm.reset();
-                        } catch (error) {
-                            console.error("Error sending message:", error);
-                            errorMsg.textContent = "Error: " + error.message;
-                            errorMsg.classList.remove('hidden');
-                        } finally {
-                            submitBtn.disabled = false;
-                            submitBtn.querySelector('span').textContent = 'Dispatch Message';
-                        }
-                    });
-                </script>
-
-            </section>
-
-            <section class="lg:col-span-5 space-y-32">
-                <div class="space-y-12 pl-6 border-l-2 border-slate-100">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.5em] text-indigo-500">Our Network</h3>
-                    <div class="grid grid-cols-1 gap-8">
-                        <a href="https://www.facebook.com/"
-                            class="group flex items-center justify-between border-b border-slate-50 pb-4">
-                            <span
-                                class="text-lg font-light group-hover:italic group-hover:translate-x-2 transition-all">Facebook</span>
-                            <span class="text-slate-200 font-black tracking-tighter">01</span>
-                        </a>
-                        <a href="https://www.x.com/"
-                            class="group flex items-center justify-between border-b border-slate-50 pb-4">
-                            <span
-                                class="text-lg font-light group-hover:italic group-hover:translate-x-2 transition-all">X</span>
-                            <span class="text-slate-200 font-black tracking-tighter">02</span>
-                        </a>
-                        <a href="https://www.instagram.com/"
-                            class="group flex items-center justify-between border-b border-slate-50 pb-4">
-                            <span
-                                class="text-lg font-light group-hover:italic group-hover:translate-x-2 transition-all">Instagram</span>
-                            <span class="text-slate-200 font-black tracking-tighter">03</span>
-                        </a>
-
-                        <a href="https://www.pinterest.com/"
-                            class="group flex items-center justify-between border-b border-slate-50 pb-4">
-                            <span
-                                class="text-lg font-light group-hover:italic group-hover:translate-x-2 transition-all">Pinterest</span>
-                            <span class="text-slate-200 font-black tracking-tighter">04</span>
-                        </a>
                     </div>
                 </div>
+                <div class="order-1 lg:order-2 relative">
+                    <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
+                            alt="Architecture"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105">
+                    </div>
+                    <div
+                        class="absolute -bottom-8 -left-8 bg-indigo-600 text-white p-10 hidden md:block aspect-square flex flex-col justify-center">
+                        <span class="text-5xl font-black serif italic leading-none">01</span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] mt-2 block">Featured</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            </section>
-        </div>
+        <!-- Masonry Grid Style Feature -->
+        <section class="bg-slate-50 py-24 border-y border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-end mb-16">
+                    <h2 class="text-4xl font-black serif">Latest Sculptures.</h2>
+                    <a href="#"
+                        class="text-xs font-bold uppercase tracking-widest text-indigo-600 hover:text-indigo-900 transition-colors">View
+                        All Works &rarr;</a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <div class="md:col-span-8 group">
+                        <div class="overflow-hidden aspect-video mb-6 rounded-sm shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1200&q=80"
+                                alt="Minimal Detail"
+                                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <span class="text-xs font-black uppercase tracking-widest text-indigo-600">Material
+                            Science</span>
+                        <h3 class="text-3xl font-black serif mt-4 mb-3 group-hover:text-indigo-600 transition-colors">
+                            The Weight of Empty Spaces.</h3>
+                        <p class="text-slate-500 font-light max-w-2xl leading-relaxed">How architects are using acoustic
+                            shadows and negative space to create psychological sanctuaries in dense cities.</p>
+                    </div>
+
+                    <div class="md:col-span-4 grid grid-cols-1 gap-10">
+                        <div class="group">
+                            <div class="overflow-hidden aspect-square mb-6 rounded-sm shadow-md">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                                    alt="Concrete"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <h4 class="text-xl font-black serif group-hover:text-indigo-600 transition-colors">Tactile
+                                Interiors</h4>
+                            <div class="vogue-line mt-2"></div>
+                        </div>
+                        <div class="group">
+                            <div class="overflow-hidden aspect-square mb-6 rounded-sm shadow-md">
+                                <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=600&q=80"
+                                    alt="Minimal"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <h4 class="text-xl font-black serif group-hover:text-indigo-600 transition-colors">Urban
+                                Permaculture</h4>
+                            <div class="vogue-line mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Material Library Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 border-t border-gray-100">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+                <div class="lg:col-span-4 self-center">
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-indigo-600 block mb-6">Tactile
+                        Archives</span>
+                    <h2 class="text-5xl font-black serif tracking-tight mb-8">The <span
+                            class="italic text-slate-400">Matter</span> of Design.</h2>
+                    <p class="text-lg text-slate-500 font-light leading-relaxed mb-10">A curated study of the surfaces
+                        that define our environments—from raw industrial concrete to bioluminescent glass.</p>
+                    <button
+                        class="w-full bg-slate-900 text-white px-8 py-5 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors">Request
+                        Catalog</button>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="aspect-square bg-slate-100 overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600"
+                                class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110">
+                        </div>
+                        <div class="aspect-[3/4] bg-slate-100 overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e03a?auto=format&fit=crop&w=600"
+                                class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-12">
+                        <div class="aspect-[3/4] bg-slate-100 overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1534854638093-baf1091cf29e?auto=format&fit=crop&w=600"
+                                class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110">
+                        </div>
+                        <div class="aspect-square bg-slate-100 overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600"
+                                class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Quote -->
+        <section class="py-32 overflow-hidden relative">
+            <div
+                class="absolute inset-0 z-0 pointer-events-none text-[30vw] font-black serif text-gray-50/50 -rotate-6 translate-y-1/2 whitespace-nowrap">
+                DESIGN MATTERS
+            </div>
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+                <svg class="w-16 h-16 text-indigo-100 mx-auto mb-10" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V4C14.017 2.89543 14.9124 2 16.017 2H20.017C21.1216 2 22.017 2.89543 22.017 4V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM3.01697 21L3.01697 18C3.01697 16.8954 3.9124 16 5.01697 16H8.01697C8.56925 16 9.01697 15.5523 9.01697 15V9C9.01697 8.44772 8.56925 8 8.01697 8H5.01697C3.9124 8 3.01697 7.10457 3.01697 6V4C3.01697 2.89543 3.9124 2 5.01697 2H9.01697C10.1215 2 11.017 2.89543 11.017 4V15C11.017 18.3137 8.33068 21 5.01697 21H3.01697Z" />
+                </svg>
+                <h2 class="text-4xl md:text-5xl font-black serif italic leading-tight text-slate-900 mb-12">
+                    "Architecture is not about building walls, but about the quality of the air between them."
+                </h2>
+                <span class="text-xs font-black uppercase tracking-[1em] text-indigo-600">— Julian May</span>
+            </div>
+        </section>
 
     </main>
 
@@ -352,9 +372,8 @@
         </div>
     </footer>
 
-    <!-- Newsletter Popup (Integrated from news-letter.html) -->
+    <!-- Newsletter Popup -->
     <style>
-        /* Smooth Entrance Animation */
         @keyframes slideUp {
             from {
                 transform: translateY(100px);
@@ -371,7 +390,6 @@
             animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Hide pop-up initially */
         #newsletter-popup {
             display: none;
         }
@@ -429,6 +447,7 @@
         </div>
     </div>
 
+    <script type="module" src="./assets/js/auth.js"></script>
     <script>
         function showPopup() {
             document.getElementById('newsletter-popup').style.display = 'block';
@@ -436,13 +455,11 @@
 
         function closePopup() {
             document.getElementById('newsletter-popup').style.display = 'none';
-            // Reset form on close
             setTimeout(() => {
                 document.getElementById('newsletter-form').style.display = 'block';
                 document.getElementById('newsletter-success').classList.add('hidden');
                 document.getElementById('newsletter-form').reset();
             }, 500);
-            // Optional: Store dismissal
             sessionStorage.setItem('newsletterDismissed', 'true');
         }
 

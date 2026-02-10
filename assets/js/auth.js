@@ -54,5 +54,31 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
     });
+    // Active Menu Highlighting
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href')?.replace('./', '');
+        if (linkPath === currentPath) {
+            // Apply active styles based on page context (dark/light)
+            if (link.classList.contains('hover:text-indigo-600') || link.closest('header')) {
+                link.classList.add('text-indigo-600', 'font-bold');
+            } else if (link.classList.contains('hover:text-blue-400')) {
+                link.classList.add('text-blue-500', 'font-bold');
+                link.classList.remove('text-gray-400');
+            }
+        }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 });
 
