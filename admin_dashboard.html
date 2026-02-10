@@ -34,14 +34,21 @@
 <body class="bg-gray-50 text-slate-800 loading">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-black text-white hidden md:block">
-            <div class="p-8 border-b border-white/10">
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-black text-white transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:block hidden">
+            <div class="p-8 border-b border-white/10 flex justify-between items-center">
                 <a href="index.html" class="block">
                     <h1 class="text-2xl font-black serif tracking-tight">THE CHRONICLE</h1>
                     <span class="text-[10px] uppercase tracking-[0.3em] text-white/40 block mt-1">Admin Panel</span>
                 </a>
+                <button id="close-sidebar" class="lg:hidden text-white/40 hover:text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <nav class="p-6 ">
+            <nav class="p-6">
                 <a href="#" class="block py-3 px-4 bg-white/10 rounded-lg text-sm font-medium">Dashboard</a>
                 <a href="./index.html"
                     class="block py-3 px-4 hover:bg-white/10 rounded-lg text-sm font-medium mt-2">Home</a>
@@ -62,11 +69,23 @@
             </div>
         </aside>
 
+        <!-- Sidebar Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+
         <!-- Main Content -->
         <main class="flex-1">
             <!-- Header -->
-            <header class="bg-white border-b border-gray-100 p-8 flex justify-between items-center">
-                <h2 class="text-2xl font-bold serif">Dashboard</h2>
+            <header
+                class="bg-white border-b border-gray-100 p-6 md:p-8 flex justify-between items-center sticky top-0 z-30">
+                <div class="flex items-center gap-4">
+                    <button id="open-sidebar" class="lg:hidden p-2 text-slate-400 hover:text-slate-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                    <h2 class="text-2xl font-bold serif">Dashboard</h2>
+                </div>
                 <div class="flex items-center gap-4">
                     <div class="text-right hidden sm:block">
                         <p class="text-sm font-bold" id="admin-name">Loading...</p>
@@ -460,6 +479,27 @@
             document.getElementById('newsletter-form').style.display = 'none';
             document.getElementById('newsletter-success').classList.remove('hidden');
         }
+    </script>
+    <script>
+        // Admin Sidebar Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const openBtn = document.getElementById('open-sidebar');
+            const closeBtn = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            if (openBtn && sidebar && overlay) {
+                openBtn.addEventListener('click', toggleSidebar);
+                if (closeBtn) closeBtn.addEventListener('click', toggleSidebar);
+                overlay.addEventListener('click', toggleSidebar);
+            }
+        });
     </script>
 </body>
 

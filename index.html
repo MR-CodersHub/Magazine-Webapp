@@ -33,7 +33,7 @@
           <span class="text-3xl font-black tracking-tighter uppercase serif">The Chronicle</span>
         </div>
 
-        <nav class="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
+        <nav class="hidden lg:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
           <a href="./index.html" class="hover:text-indigo-600 transition">Home</a>
           <a href="./home-2.html" class="hover:text-indigo-600 transition">Design Edition</a>
           <div class="relative group cursor-pointer h-full flex items-center">
@@ -87,7 +87,7 @@
           </div>
         </nav>
 
-        <div class="md:hidden flex items-center">
+        <div class="lg:hidden flex items-center">
           <button id="mobile-menu-btn" class="p-2">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" />
@@ -97,7 +97,7 @@
       </div>
     </div>
     <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-8 px-4 space-y-4 shadow-xl">
+    <nav id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-8 px-4 space-y-4 shadow-xl">
       <div class="flex flex-col space-y-4 pt-8">
         <a href="./index.html"
           class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Home</a>
@@ -109,6 +109,20 @@
           class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Latest</a>
         <a href="./blog.html"
           class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Blog</a>
+
+        <!-- Categories in Mobile -->
+        <div class="pt-4 border-t border-gray-50">
+          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 block mb-4">Categories</span>
+          <div class="grid grid-cols-2 gap-4">
+            <a href="./category1.html" class="text-sm font-bold hover:text-indigo-600">Technology</a>
+            <a href="./category2.html" class="text-sm font-bold hover:text-indigo-600">Culture</a>
+            <a href="./category3.html" class="text-sm font-bold hover:text-indigo-600">Business</a>
+            <a href="./category4.html" class="text-sm font-bold hover:text-indigo-600">Travel</a>
+            <a href="./category5.html" class="text-sm font-bold hover:text-indigo-600">Health</a>
+            <a href="./category6.html" class="text-sm font-bold hover:text-indigo-600">Design</a>
+          </div>
+        </div>
+
         <a href="./contact.html"
           class="text-sm font-bold uppercase tracking-widest hover:text-indigo-600 transition">Contact</a>
         <div class="pt-4 border-t border-gray-100 flex flex-col space-y-4">
@@ -117,6 +131,19 @@
         </div>
       </div>
     </nav>
+
+    <script>
+      // Mobile Menu Toggle - Defined here to ensure it works even if modules fail
+      document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+          btn.addEventListener('click', function () {
+            menu.classList.toggle('hidden');
+          });
+        }
+      });
+    </script>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -432,10 +459,10 @@
           Archives &rarr;</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
         <div class="space-y-6 group cursor-pointer">
           <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
-            <img src="https://images.unsplash.com/photo-1514525253361-bee8718a342b?auto=format&fit=crop&w=600"
+            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
           <h3 class="text-xl font-bold serif leading-tight">Neon Shadows: Tokyo's Midnight Jazz Scene.</h3>
@@ -445,7 +472,7 @@
 
         <div class="space-y-6 group cursor-pointer pt-12 md:pt-0">
           <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
-            <img src="https://images.unsplash.com/photo-1528605248644-14dd04e220f1?auto=format&fit=crop&w=600"
+            <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1200&q=80"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
           <h3 class="text-xl font-bold serif leading-tight">The Brutalist Revival in Eastern Europe.</h3>
@@ -749,7 +776,7 @@
   </style>
 
   <div id="newsletter-popup"
-    class="fixed bottom-8 right-8 z-50 w-[380px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border border-slate-100 animate-pop-up">
+    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[380px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border border-slate-100 animate-pop-up">
 
     <button onclick="closePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"
       aria-label="Close">
