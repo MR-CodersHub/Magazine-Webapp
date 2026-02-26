@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | THE CHRONICLE</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sidebar-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid white;
+            color: white;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        body.loading {
+            opacity: 0;
+        }
+
+        body {
+            transition: opacity 0.3s ease;
+        }
+
+        #sidebar {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .admin-section {
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        /* Modal Styles */
+        #article-modal.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f8fafc] text-slate-900">
+
+    <div class="flex min-h-screen relative overflow-x-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 text-slate-400 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out border-r border-white/5">
+            <div class="p-8 border-b border-white/5 flex items-center justify-between">
+                <a href="./index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-8 h-8 bg-white flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12">
+                        <span class="text-slate-950 font-black text-xl serif">C</span>
+                    </div>
+                    <span class="text-white font-black tracking-tighter uppercase serif text-lg pt-1">The
+                        Chronicle</span>
+                </a>
+                <button id="close-sidebar" class="lg:hidden text-slate-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <nav class="p-6 space-y-8 overflow-y-auto h-[calc(100vh-100px)]">
+                <div class="space-y-1">
+                    <p class="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 mb-4">Core
+                        Management</p>
+                    <a href="#dashboard" id="sidebar-dashboard"
+                        class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                        Dashboard
+                    </a>
+                    <a href="#users" id="sidebar-users"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        User Management
+                    </a>
+                    <a href="#content" id="sidebar-content"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        Content Management
+                    </a>
+                    <a href="#approvals" id="sidebar-approvals"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        Post Approval Queue
+                        <span class="ml-auto bg-white/10 text-white text-[10px] px-2 py-0.5 rounded-full">3</span>
+                    </a>
+                </div>
+
+                <div class="space-y-1">
+                    <p class="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 mb-4">Insights</p>
+                    <a href="#analytics" id="sidebar-analytics"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                        Analytics Overview
+                    </a>
+                    <a href="#reports" id="sidebar-reports"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="pie-chart" class="w-4 h-4"></i>
+                        View Reports
+                    </a>
+                </div>
+
+                <div class="space-y-1 pt-8 border-t border-white/5 mt-auto">
+                    <a href="#settings" id="sidebar-settings"
+                        class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-white/5 hover:text-white group">
+                        <i data-lucide="settings" class="w-4 h-4"></i>
+                        System Settings
+                    </a>
+                    <button id="logout-btn"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all hover:bg-red-500/10 hover:text-red-400 group text-left">
+                        <i data-lucide="log-out" class="w-4 h-4"></i>
+                        Sign Out
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/50 z-40 hidden lg:hidden"></div>
+
+        <!-- Main Content -->
+        <main class="flex-grow min-w-0 flex flex-col">
+            <!-- Header -->
+            <header
+                class="h-20 bg-white border-b border-slate-200 sticky top-0 z-30 px-8 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <button id="open-sidebar"
+                        class="lg:hidden p-2 text-slate-500 hover:text-slate-950 hover:bg-slate-100 rounded-lg">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <h1 class="text-xl font-bold serif hidden md:block">Admin Dashboard</h1>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <button
+                        class="relative p-2 text-slate-500 hover:text-slate-950 hover:bg-slate-100 rounded-full transition-colors">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                        <span
+                            class="absolute top-2 right-2 w-2 h-2 bg-slate-950 rounded-full border-2 border-white"></span>
+                    </button>
+                    <div class="h-8 w-[1px] bg-slate-200"></div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-xs font-bold text-slate-950" id="admin-name-display">System Admin</p>
+                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Master Level</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 bg-slate-950 rounded-full flex items-center justify-center text-white ring-4 ring-slate-100">
+                            <i data-lucide="user" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="main-sections-container" class="p-8 lg:p-12">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="admin-section dashboard-section active space-y-12">
+                    <!-- Welcome Section -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div>
+                            <span
+                                class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-2 block">Executive
+                                Control</span>
+                            <h2 class="text-4xl md:text-5xl font-black serif tracking-tight">Admin <span
+                                    class="italic text-slate-300 font-medium">Dashboard</span></h2>
+                            <p class="text-slate-500 mt-2 font-light">Manage platform content, users, and system
+                                activity.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <button id="manage-users-btn-dash"
+                                class="bg-white border border-slate-200 text-slate-900 px-6 py-3 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-slate-50 transition-all flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                                Manage Users
+                            </button>
+                            <button id="add-article-btn-dash"
+                                class="bg-slate-950 text-white px-6 py-3 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 flex items-center gap-2">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                                Add New Article
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Total Users
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <h3 class="text-3xl font-black serif" id="total-users">1,284</h3>
+                                <span
+                                    class="text-[9px] font-bold text-green-500 bg-green-50 px-2 py-0.5 rounded-full">+12%</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Total
+                                Articles
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <h3 class="text-3xl font-black serif">452</h3>
+                                <span
+                                    class="text-[9px] font-bold text-green-500 bg-green-50 px-2 py-0.5 rounded-full">+5%</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Pending
+                                Approvals</p>
+                            <div class="flex items-end justify-between">
+                                <h3 class="text-3xl font-black serif">12</h3>
+                                <span
+                                    class="text-[9px] font-bold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">Urgent</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Active
+                                Members
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <h3 class="text-3xl font-black serif">842</h3>
+                                <span
+                                    class="text-[9px] font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded-full">Live</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+                            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4">Weekly
+                                Traffic
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <h3 class="text-3xl font-black serif">18.2k</h3>
+                                <span
+                                    class="text-[9px] font-bold text-green-500 bg-green-50 px-2 py-0.5 rounded-full">+18%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matrix Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <!-- Summary View -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <div class="flex items-center justify-between px-2">
+                                <h3 class="text-2xl font-black serif tracking-tight">Executive Summary</h3>
+                            </div>
+                            <!-- Control Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div
+                                    class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-slate-300 transition-all group">
+                                    <div
+                                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-950 group-hover:text-white transition-all">
+                                        <i data-lucide="users" class="w-6 h-6"></i>
+                                    </div>
+                                    <h4 class="text-lg font-bold serif mb-2">User Directory</h4>
+                                    <p class="text-xs text-slate-500 mb-6 font-light">Monitor user registries and
+                                        digital identities.</p>
+                                    <button onclick="switchSection('users')"
+                                        class="w-full py-3 bg-slate-950 text-white rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all">Enter
+                                        Registry</button>
+                                </div>
+
+                                <div
+                                    class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:border-slate-300 transition-all group">
+                                    <div
+                                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-950 group-hover:text-white transition-all">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <h4 class="text-lg font-bold serif mb-2">Content Matrix</h4>
+                                    <p class="text-xs text-slate-500 mb-6 font-light">Draft, edit, or archive recent
+                                        publications.</p>
+                                    <button onclick="switchSection('content')"
+                                        class="w-full py-3 border border-slate-200 text-slate-950 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all">Manage
+                                        Content</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Side Panel: Analytics Quick View -->
+                        <div class="space-y-12">
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-black serif tracking-tight px-2">Quick Metrics</h3>
+                                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-8">
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">
+                                            Server Load</p>
+                                        <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="bg-slate-900 h-full w-[24%]"></div>
+                                        </div>
+                                    </div>
+                                    <button onclick="switchSection('analytics')"
+                                        class="w-full py-4 text-[10px] font-black uppercase tracking-widest text-white bg-slate-950 rounded-xl shadow-lg shadow-slate-200">Full
+                                        Analytics</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Citizen Correspondence Section (Moved inside Dashboard) -->
+                    <div class="space-y-6 pt-12 border-t border-slate-100">
+                        <h3 class="text-2xl font-black serif tracking-tight">Citizen Correspondence</h3>
+                        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr class="border-b border-slate-100 bg-slate-50/50">
+                                            <th
+                                                class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                                Sender</th>
+                                            <th
+                                                class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                                Subject</th>
+                                            <th
+                                                class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                                Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="messages-table-body" class="divide-y divide-slate-50">
+                                        <!-- Dynamic messages -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Management Section -->
+                <section id="users" class="admin-section users-section space-y-12">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-4xl font-black serif">User <span class="italic text-slate-300">Management</span>
+                        </h2>
+                        <button
+                            class="bg-slate-950 text-white px-6 py-3 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all">Add
+                            New User</button>
+                    </div>
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="border-b border-slate-100 bg-slate-50/50">
+                                        <th
+                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            Member</th>
+                                        <th
+                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            Email</th>
+                                        <th
+                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            Role</th>
+                                        <th
+                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            Joined</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body" class="divide-y divide-slate-50">
+                                    <!-- Dynamic content -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Content Management Section -->
+                <section id="content" class="admin-section content-section space-y-12">
+                    <h2 class="text-4xl font-black serif">Content <span class="italic text-slate-300">Matrix</span></h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-3xl border border-slate-100 text-center">
+                            <i data-lucide="plus-circle" class="w-12 h-12 mx-auto mb-4 text-slate-200"></i>
+                            <h4 class="font-bold mb-2">Publication Wizard</h4>
+                            <p class="text-xs text-slate-500 mb-6">Start a new editorial project.</p>
+                            <button id="add-article-btn-content"
+                                class="w-full py-3 bg-slate-950 text-white rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all">Create
+                                New</button>
+                        </div>
+                        <div
+                            class="bg-white p-8 rounded-3xl border border-slate-100 text-center group hover:border-slate-300 transition-all">
+                            <i data-lucide="folder"
+                                class="w-12 h-12 mx-auto mb-4 text-slate-200 group-hover:text-slate-950 transition-all"></i>
+                            <h4 class="font-bold mb-2">Article Archive</h4>
+                            <p class="text-xs text-slate-500 mb-6">Browse and edit past publications.</p>
+                            <button
+                                class="w-full py-3 border border-slate-200 text-slate-950 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all">View
+                                All</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Post Approval Queue Section -->
+                <section id="approvals" class="admin-section approvals-section space-y-12">
+                    <h2 class="text-4xl font-black serif">Approval <span class="italic text-slate-300">Queue</span></h2>
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-slate-100 bg-slate-50/50">
+                                    <th
+                                        class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                        Title</th>
+                                    <th
+                                        class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                        Author</th>
+                                    <th
+                                        class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-right">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-slate-50 transition-all">
+                                    <td class="px-8 py-5 text-sm font-bold">The Future of Minimalist Grid Systems</td>
+                                    <td class="px-8 py-5 text-sm font-light italic">Julian Vane</td>
+                                    <td class="px-8 py-5 text-right flex gap-2 justify-end">
+                                        <button class="p-2 text-green-500 hover:bg-green-50 rounded-lg"
+                                            title="Approve"><i data-lucide="check" class="w-4 h-4"></i></button>
+                                        <button class="p-2 text-red-500 hover:bg-red-50 rounded-lg" title="Reject"><i
+                                                data-lucide="x" class="w-4 h-4"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Analytics Overview Section -->
+                <section id="analytics" class="admin-section analytics-section space-y-12">
+                    <h2 class="text-4xl font-black serif">Platform <span class="italic text-slate-300">Analytics</span>
+                    </h2>
+                    <div class="bg-white p-12 rounded-3xl border border-slate-100 text-center">
+                        <i data-lucide="bar-chart" class="w-16 h-16 mx-auto mb-6 text-slate-200"></i>
+                        <h3 class="text-xl font-bold mb-4">Lumina Insight Engine</h3>
+                        <p class="text-slate-500">Real-time data visualization is being processed.</p>
+                    </div>
+                </section>
+
+                <!-- View Reports Section -->
+                <section id="reports" class="admin-section reports-section space-y-12">
+                    <h2 class="text-4xl font-black serif">Monthly <span class="italic text-slate-300">Dispatches</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                            <h4 class="font-black uppercase tracking-widest text-[10px] text-slate-400 mb-4">January
+                                2026</h4>
+                            <button
+                                class="w-full py-4 border border-slate-900 text-slate-900 rounded-lg text-[10px] font-black uppercase tracking-widest">Download
+                                PDF</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Settings Section -->
+                <section id="settings" class="admin-section settings-section space-y-12">
+                    <h2 class="text-4xl font-black serif">System <span class="italic text-slate-300">Protocols</span>
+                    </h2>
+                    <div class="bg-white p-12 rounded-3xl border border-slate-100 space-y-8">
+                        <div class="flex items-center justify-between p-6 bg-slate-50 rounded-2xl">
+                            <div>
+                                <h4 class="font-bold">Maintenance Mode</h4>
+                                <p class="text-xs text-slate-500">Restrict access to the platform.</p>
+                            </div>
+                            <div class="w-12 h-6 bg-slate-200 rounded-full relative">
+                                <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Add Article Modal -->
+            <div id="article-modal" class="fixed inset-0 z-[100] hidden">
+                <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" id="close-modal-bg"></div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl bg-white rounded-3xl shadow-2xl p-12">
+                    <h2 class="text-3xl font-black serif mb-8">Draft New <span
+                            class="italic text-slate-300">Article</span></h2>
+                    <form id="add-article-form" class="space-y-6">
+                        <div>
+                            <label
+                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block">Publication
+                                Title</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 bg-slate-100 rounded-lg outline-none focus:ring-2 focus:ring-slate-950 transition-all font-bold"
+                                required>
+                        </div>
+                        <div>
+                            <label
+                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block">Category</label>
+                            <select
+                                class="w-full px-4 py-3 bg-slate-100 rounded-lg outline-none focus:ring-2 focus:ring-slate-950 transition-all font-bold">
+                                <option>Design</option>
+                                <option>Culture</option>
+                                <option>Technology</option>
+                            </select>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 bg-slate-950 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-xl shadow-slate-200">Dispatch
+                            for Review</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer
+                class="mt-auto border-t border-slate-200 bg-white p-8 px-12 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">&copy; 2026 THE CHRONICLE
+                    MEDIA GROUP. ARCHIVE ACCESS ONLY.</p>
+                <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <a href="./index.html" class="hover:text-slate-950 transition-colors">Digital Home</a>
+                    <a href="maintainance.html" class="hover:text-slate-950 transition-colors">Security Protocol</a>
+                    <a href="maintainance.html" class="hover:text-slate-950 transition-colors">Support Bureau</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Redirection Support Script -->
+    <script type="module">
+        import { mockApi } from './assets/js/mock-api.js';
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        const adminNameDisplay = document.getElementById('admin-name-display');
+        const welcomeName = document.getElementById('welcome-name');
+        const logoutBtn = document.getElementById('logout-btn');
+        const totalUsersEl = document.getElementById('total-users');
+        const totalMessagesEl = document.getElementById('total-messages');
+        const usersTableBody = document.getElementById('users-table-body');
+        const messagesTableBody = document.getElementById('messages-table-body');
+
+        // Sidebar Controls
+        const openSidebarBtn = document.getElementById('open-sidebar');
+        const closeSidebarBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (openSidebarBtn) {
+            openSidebarBtn.onclick = () => {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            };
+        }
+
+        if (closeSidebarBtn) {
+            closeSidebarBtn.onclick = () => {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            };
+        }
+
+        if (sidebarOverlay) {
+            sidebarOverlay.onclick = () => {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            };
+        }
+
+        // Session Check
+        const session = JSON.parse(localStorage.getItem('chronicle_session'));
+
+        if (!session || session.role !== 'admin') {
+            window.location.href = 'login.html';
+        } else {
+            document.body.classList.remove('loading');
+
+            // Fetch profile for better display
+            (async () => {
+                try {
+                    const user = await mockApi.getUserProfile(session.uid);
+                    const name = user ? user.full_name : session.email.split('@')[0].toUpperCase();
+                    adminNameDisplay.textContent = name;
+                    welcomeName.textContent = name;
+                } catch (err) {
+                    const fallback = session.email.split('@')[0].toUpperCase();
+                    adminNameDisplay.textContent = fallback;
+                    welcomeName.textContent = fallback;
+                }
+            })();
+
+            loadDashboardData();
+        }
+
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('chronicle_session');
+            window.location.href = 'login.html';
+        });
+
+
+
+        // Global Toggling Logic
+        window.switchSection = (sectionId) => {
+            const sections = document.querySelectorAll('.admin-section');
+            const links = document.querySelectorAll('.sidebar-link');
+
+            sections.forEach(s => s.classList.remove('active'));
+            links.forEach(l => l.classList.remove('active'));
+
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active');
+                // Highlight sidebar link
+                const sidebarLink = document.getElementById(`sidebar-${sectionId}`);
+                if (sidebarLink) sidebarLink.classList.add('active');
+
+                // Close sidebar on mobile
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                    sidebarOverlay.classList.add('hidden');
+                }
+
+                // Scroll to top of content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        // Modal Controls
+        const articleModal = document.getElementById('article-modal');
+        const openModalBtnDash = document.getElementById('add-article-btn-dash');
+        const openModalBtnContent = document.getElementById('add-article-btn-content');
+        const closeModalBg = document.getElementById('close-modal-bg');
+        const addArticleForm = document.getElementById('add-article-form');
+
+        const toggleModal = (show) => {
+            if (articleModal) articleModal.classList.toggle('hidden', !show);
+        };
+
+        if (openModalBtnDash) {
+            openModalBtnDash.onclick = () => {
+                switchSection('content');
+                toggleModal(true);
+            };
+        }
+
+        if (openModalBtnContent) {
+            openModalBtnContent.onclick = () => toggleModal(true);
+        }
+
+        if (closeModalBg) closeModalBg.onclick = () => toggleModal(false);
+
+        if (addArticleForm) {
+            addArticleForm.onsubmit = (e) => {
+                e.preventDefault();
+                alert("Digital Dispatch Staged: Article has been sent to the editorial matrix.");
+                toggleModal(false);
+            };
+        }
+
+        // Sidebar and Button Click Handlers
+        document.querySelectorAll('.sidebar-link[href^="#"]').forEach(link => {
+            link.onclick = (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('href').substring(1);
+                switchSection(sectionId);
+            };
+        });
+
+        // Dashboard specific buttons
+        const manageUsersDash = document.getElementById('manage-users-btn-dash');
+        if (manageUsersDash) manageUsersDash.onclick = () => switchSection('users');
+
+        // Note: For other cards/buttons, we use inline onclick="switchSection('...') "
+        // or add listeners here if preferred. 
+
+        async function loadDashboardData() {
+            // 1. Fetch Users
+            try {
+                const users = await mockApi.getUsers();
+                totalUsersEl.textContent = users.length;
+
+                const recentUsers = [...users].reverse();
+                usersTableBody.innerHTML = '';
+
+                if (recentUsers.length === 0) {
+                    usersTableBody.innerHTML = '<tr><td colspan="4" class="px-8 py-12 text-center text-slate-400 italic">No members found in directory.</td></tr>';
+                } else {
+                    recentUsers.forEach((u) => {
+                        const date = u.created_at ? new Date(u.created_at).toLocaleDateString() : 'UNKNOWN';
+                        const row = `
+                            <tr class="hover:bg-slate-50 transition-colors group">
+                                <td class="px-8 py-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-900 group-hover:bg-slate-950 group-hover:text-white transition-all">
+                                            ${u.full_name ? u.full_name.charAt(0) : 'U'}
+                                        </div>
+                                        <span class="text-sm font-bold text-slate-950">${u.full_name || 'Anonymous Member'}</span>
+                                    </div>
+                                </td>
+                                <td class="px-8 py-6 text-sm text-slate-500 font-light">${u.email}</td>
+                                <td class="px-8 py-6">
+                                    <span class="${u.role === 'admin' ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-600'} text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                                        ${u.role || 'user'}
+                                    </span>
+                                </td>
+                                <td class="px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
+                            </tr>
+                        `;
+                        usersTableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+            } catch (error) {
+                console.error("Error loading users:", error);
+                usersTableBody.innerHTML = '<tr><td colspan="4" class="px-8 py-12 text-center text-red-500 italic">Critical error accessing directory archive.</td></tr>';
+            }
+
+            // 2. Fetch Messages
+            try {
+                const messages = await mockApi.getMessages();
+                totalMessagesEl.textContent = messages.length;
+
+                const recentMessages = [...messages].reverse().slice(0, 5);
+                messagesTableBody.innerHTML = '';
+
+                if (recentMessages.length === 0) {
+                    messagesTableBody.innerHTML = '<tr><td colspan="3" class="px-8 py-12 text-center text-slate-400 italic">No correspondence records found.</td></tr>';
+                } else {
+                    recentMessages.forEach(msg => {
+                        const date = new Date(msg.created_at).toLocaleDateString();
+                        const row = `
+                            <tr class="hover:bg-slate-50 transition-colors group">
+                                <td class="px-8 py-6 text-sm font-bold text-slate-950">${msg.name}</td>
+                                <td class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">${msg.subject}</td>
+                                <td class="px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
+                            </tr>
+                        `;
+                        messagesTableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+            } catch (error) {
+                console.error("Error loading messages:", error);
+                messagesTableBody.innerHTML = '<tr><td colspan="3" class="px-8 py-12 text-center text-red-500 italic">Critical error accessing message relay.</td></tr>';
+            }
+        }
+
+        // Table Action Handlers
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('button[title]');
+            if (!btn) return;
+
+            const action = btn.getAttribute('title');
+            const row = btn.closest('tr');
+            const title = row.querySelector('td:first-child')?.textContent;
+
+            if (action === 'Approve') {
+                alert(`SUCCESS: "${title}" has been approved and staged for next dispatch.`);
+                row.style.opacity = '0.5';
+                btn.parentElement.innerHTML = '<span class="text-[10px] font-black text-green-500 uppercase tracking-widest">Approved</span>';
+            } else if (action === 'Reject') {
+                if (confirm(`Are you sure you want to reject and archive "${title}"?`)) {
+                    row.remove();
+                    alert(`Publication archived.`);
+                }
+            }
+        });
+
+        // Notification Bell
+        const bellBtn = document.querySelector('button .lucide-bell')?.parentElement;
+        if (bellBtn) {
+            bellBtn.addEventListener('click', () => {
+                alert("Platform Notice: 3 items in Post Approval Queue require your inspection.");
+            });
+        }
+    </script>
+</body>
+
+</html>

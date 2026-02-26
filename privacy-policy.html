@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Protocol | The Chronicle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&display=swap"
+    rel="stylesheet">
+  <style>
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .sans {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #4f46e5;
+    }
+
+    .protocol-section:hover .indicator {
+      width: 40px;
+      background: #4f46e5;
+    }
+
+    .indicator {
+      width: 20px;
+      height: 1px;
+      background: #cbd5e1;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-[#FDFDFD] text-[#1a1a1a] sans antialiased">
+
+
+  <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="./index.html">
+            <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase serif">The Chronicle</span>
+          </a>
+        </div>
+
+        <nav class="hidden lg:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
+          <a href="./index.html" class="hover:text-slate-600 transition">Home</a>
+          <a href="./home-2.html" class="hover:text-slate-600 transition">Home2</a>
+          <div class="relative group cursor-pointer h-full flex items-center">
+            <span class="hover:text-slate-600 transition py-8">Categories ↓</span>
+
+            <!-- Dropdown Menu -->
+            <div
+              class="absolute top-16 left-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="./category1.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Technology</a>
+                <a href="./category2.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Culture</a>
+                <a href="./category3.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Business</a>
+                <a href="./category4.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Travel</a>
+                <a href="./category5.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Health</a>
+                <a href="./category6.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Design</a>
+              </div>
+            </div>
+          </div>
+          <a href="./featured.html" class="hover:text-slate-600 transition">Featured</a>
+          <a href="./latest.html" class="hover:text-slate-600 transition">Latest</a>
+          <a href="./blog.html" class="hover:text-slate-600 transition">Blog</a>
+          <a href="./contact.html" class="hover:text-slate-600 transition">Contact</a>
+
+          <div class="relative group cursor-pointer h-full flex items-center ml-2">
+            <span class="hover:text-slate-600 transition py-8 flex items-center">
+              <!-- Profile Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </span>
+
+            <!-- Dropdown Menu -->
+            <div id="auth-dropdown"
+              class="absolute top-16 right-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="./login.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors border-b border-gray-50">Log
+                  In</a>
+                <a href="./signup.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="lg:hidden flex items-center space-x-1 sm:space-x-2">
+          <!-- Mobile Account Icon -->
+          <div class="relative flex items-center">
+            <button id="mobileUserToggle" class="p-2 text-slate-900 hover:text-slate-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </button>
+            <!-- Mobile Auth Dropdown -->
+            <div id="mobileAuthDropdown"
+              class="hidden absolute top-full right-0 mt-2 w-48 bg-white shadow-2xl border border-gray-100 z-[110] py-2 rounded-sm transform origin-top-right">
+              <a href="./login.html"
+                class="block px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-900 hover:bg-gray-50 border-b border-gray-50">Log
+                In</a>
+              <a href="./signup.html"
+                class="block px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-900 hover:bg-gray-50">Sign
+                Up</a>
+            </div>
+          </div>
+
+          <button id="menuToggle" class="p-2 text-slate-900">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu"
+      class="hidden fixed top-20 left-0 w-full bg-white border-t border-gray-100 pb-8 px-4 space-y-4 shadow-xl z-[100] h-[calc(100vh-5rem)] overflow-y-auto lg:hidden">
+      <div class="flex flex-col space-y-4 pt-8">
+        <a href="./index.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Home</a>
+        <a href="./home-2.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Home2</a>
+        <a href="./featured.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Featured</a>
+        <a href="./latest.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Latest</a>
+        <a href="./blog.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Blog</a>
+
+        <!-- Categories in Mobile -->
+        <div class="space-y-4">
+          <button id="submenuToggle"
+            class="w-full flex justify-between items-center text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">
+            <span>Categories</span>
+            <svg id="submenuArrow" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="mobileSubmenu" class="hidden pl-4 space-y-4 border-l border-gray-100 mt-2">
+            <a href="./category1.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Technology</a>
+            <a href="./category2.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Culture</a>
+            <a href="./category3.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Business</a>
+            <a href="./category4.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Travel</a>
+            <a href="./category5.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Health</a>
+            <a href="./category6.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Design</a>
+          </div>
+        </div>
+
+        <a href="./contact.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Contact</a>
+      </div>
+    </nav>
+    <script src="./assets/js/menu.js" defer></script>
+  </header>
+
+
+  <main class="max-w-screen-2xl mx-auto px-6 lg:px-12 pt-32 pb-64">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
+
+      <aside class="hidden lg:block lg:col-span-3 sticky top-40 h-fit">
+        <nav class="space-y-6">
+          <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-900 mb-8">Table of Contents</p>
+          <ul class="space-y-4 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+            <li><a href="#collection" class="hover:text-black transition">01. Collection</a></li>
+            <li><a href="#usage" class="hover:text-black transition">02. Utilization</a></li>
+            <li><a href="#security" class="hover:text-black transition">03. Cryptography</a></li>
+            <li><a href="#rights" class="hover:text-black transition">04. Sovereign Rights</a></li>
+          </ul>
+      </aside>
+
+      <section class="col-span-1 lg:col-span-9 space-y-32">
+
+        <div id="collection" class="protocol-section group">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="indicator"></div>
+            <span class="mono text-[10px] text-slate-500">01. IDENTITY DISPATCH</span>
+          </div>
+          <h2 class="text-4xl font-black serif uppercase mb-8">Data Collection</h2>
+          <div class="prose prose-slate max-w-3xl text-slate-600 font-light leading-relaxed space-y-6">
+            <p>Upon authentication with the Bureau, we collect specific identity markers including your <strong>Member
+                Reference (Email)</strong> and <strong>Biometric Signatures</strong> where applicable. This is strictly
+              for session establishment and vault security.</p>
+            <p>We do not track external browsing history. Your movements within the Chronicle remain private, encrypted
+              within our local ledger.</p>
+          </div>
+        </div>
+
+        <div id="usage" class="protocol-section group">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="indicator"></div>
+            <span class="mono text-[10px] text-slate-500">02. UTILIZATION LOGS</span>
+          </div>
+          <h2 class="text-4xl font-black serif uppercase mb-8">How We Use Data</h2>
+          <div class="prose prose-slate max-w-3xl text-slate-600 font-light leading-relaxed space-y-6">
+            <p>Data utilization is restricted to the following operational parameters:</p>
+            <ul class="list-none space-y-4 pl-0">
+              <li class="flex items-start gap-4"><span class="text-slate-900">/</span> Session persistence and vault
+                access.</li>
+              <li class="flex items-start gap-4"><span class="text-slate-900">/</span> Distribution of the weekly
+                High-Frequency Narrative.</li>
+              <li class="flex items-start gap-4"><span class="text-slate-900">/</span> Maintenance of the global
+                architectural index.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="security" class="protocol-section group">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="indicator"></div>
+            <span class="mono text-[10px] text-slate-500">03. CRYPTOGRAPHIC INTEGRITY</span>
+          </div>
+          <h2 class="text-4xl font-black serif uppercase mb-8">Security Architecture</h2>
+          <div class="bg-slate-50 p-12 border-l-4 border-slate-900">
+            <p class="mono text-[11px] uppercase tracking-widest leading-relaxed text-slate-500">
+              The Chronicle utilizes Advanced Encryption Standard (AES-256) for all archived data. Member credentials
+              are never stored in plain-text. Our servers are distributed across three secure zones to ensure
+              architectural redundancy.
+            </p>
+          </div>
+        </div>
+
+        <div id="rights" class="protocol-section group">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="indicator"></div>
+            <span class="mono text-[10px] text-slate-500">04. SOVEREIGN RIGHTS</span>
+          </div>
+          <h2 class="text-4xl font-black serif uppercase mb-8">Member Sovereignty</h2>
+          <p class="text-slate-600 font-light leading-relaxed max-w-3xl">You retain full sovereignty over your data
+            ledger. At any time, you may request a <strong>Complete Purge</strong> of your identity reference from our
+            archives. This action is irreversible and will revoke all Vault access immediately.</p>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-gray-100 text-black pt-20 pb-12 mt-20 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
+        <!-- Brand & About -->
+        <div class="space-y-8">
+          <div>
+            <a href="./index.html">
+              <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle</h2>
+            </a>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed font-light">
+              Exploring the intersection of design, technology, and contemporary culture. A publication for the modern
+              mind.
+            </p>
+          </div>
+          <div class="flex gap-5">
+            <a href="https://www.facebook.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+              aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.x.com/" class="text-slate-400 hover:text-slate-600 transition-all" aria-label="X">
+              <svg class="w-4 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+              aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Navigation</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./index.html" class="hover:text-slate-600 transition-colors">Home</a></li>
+            <li><a href="./home-2.html" class="hover:text-slate-600 transition-colors">Home2</a></li>
+            <li><a href="./category1.html" class="hover:text-slate-600 transition-colors">Categories</a></li>
+            <li><a href="./featured.html" class="hover:text-slate-600 transition-colors">Featured</a></li>
+            <li><a href="./latest.html" class="hover:text-slate-600 transition-colors">Latest</a></li>
+            <li><a href="./blog.html" class="hover:text-slate-600 transition-colors">Blog</a></li>
+            <li><a href="./contact.html" class="hover:text-slate-600 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Legal</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./privacy-policy.html" class="hover:text-slate-600 transition-colors">Privacy Policy</a></li>
+            <li><a href="./tos.html" class="hover:text-slate-600 transition-colors">Terms of Service</a></li>
+            <li><a href="./faq.html" class="hover:text-slate-600 transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Dispatch -->
+        <div class="bg-white p-8 border border-gray-200">
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-4">Weekly Dispatch</h3>
+          <p class="text-[11px] text-slate-500 leading-relaxed font-light mb-6">
+            A curated selection of the week's most important stories.
+          </p>
+          <button onclick="showPopup()"
+            class="w-full bg-slate-900 text-white py-4 text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-200">
+            Join the Collective
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">
+          &copy; 2026 THE CHRONICLE MEDIA GROUP. ALL RIGHTS RESERVED.
+        </p>
+        <p class="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">
+          Designed by MR Coders Hub
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Newsletter Popup (Integrated from news-letter.html) -->
+  <style>
+    /* Smooth Entrance Animation */
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-pop-up {
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Hide pop-up initially */
+    #newsletter-popup {
+      display: none;
+    }
+  </style>
+
+  <div id="newsletter-popup"
+    class="fixed bottom-8 right-8 z-50 w-[380px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border border-slate-100 animate-pop-up">
+
+    <button onclick="closePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"
+      aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="p-10">
+      <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-900 mb-3 block">Weekly Dispatch</span>
+      <h2 class="text-3xl font-bold serif leading-tight mb-4 text-slate-900">
+        Stories worth <br><span class="italic font-medium text-slate-500">your time.</span>
+      </h2>
+
+      <p class="text-sm text-slate-500 leading-relaxed mb-8 font-light">
+        A curated selection of ideas shaping culture, technology, and design. Delivered every Sunday.
+      </p>
+
+      <form id="newsletter-form" class="space-y-4" onsubmit="handleSubscribe(event)">
+        <div class="space-y-1">
+          <label class="text-[9px] font-black uppercase tracking-widest text-slate-400">Email Address</label>
+          <input type="email" required
+            class="w-full bg-transparent border-b border-slate-200 py-2 transition-all focus:border-slate-900 outline-none placeholder-slate-300 text-sm font-light"
+            placeholder="email@example.com">
+        </div>
+
+        <button type="submit"
+          class="w-full bg-slate-900 text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-slate-200 mt-2">
+          Join the Collective
+        </button>
+      </form>
+
+      <div id="newsletter-success" class="hidden text-center py-8">
+        <svg class="w-12 h-12 text-slate-900 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <h3 class="text-xl font-bold serif text-slate-900">Subscribed</h3>
+        <p class="text-sm text-slate-500 mt-2">Welcome to the collective.</p>
+      </div>
+
+      <button onclick="closePopup()"
+        class="w-full text-center mt-6 text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-600 transition-colors">
+        No thanks
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById('newsletter-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('newsletter-popup').style.display = 'none';
+      // Reset form on close
+      setTimeout(() => {
+        document.getElementById('newsletter-form').style.display = 'block';
+        document.getElementById('newsletter-success').classList.add('hidden');
+        document.getElementById('newsletter-form').reset();
+      }, 500);
+      // Optional: Store dismissal
+      sessionStorage.setItem('newsletterDismissed', 'true');
+    }
+
+    function handleSubscribe(event) {
+      event.preventDefault();
+      document.getElementById('newsletter-form').style.display = 'none';
+      document.getElementById('newsletter-success').classList.remove('hidden');
+    }
+  </script>
+  <script type="module" src="./assets/js/auth.js"></script>
+</body>
+
+</html>

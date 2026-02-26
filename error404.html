@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | The Chronicle</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .error-ghost {
+            font-size: 25vw;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 sans antialiased flex flex-col min-h-screen">
+
+    <div class="relative flex-grow flex items-center justify-center overflow-hidden py-20">
+        <div class="absolute inset-0 flex items-center justify-center z-0">
+            <span class="error-ghost serif font-black">404</span>
+        </div>
+
+        <main class="relative z-10 max-w-2xl px-6 text-center">
+
+            <span class="text-[10px] font-black uppercase tracking-[0.6em] text-slate-900 mb-8 block">Information
+                Error</span>
+
+            <h1 class="text-5xl md:text-7xl font-black serif tracking-tighter leading-tight mb-6">
+                A quiet end to <br><span class="italic font-light text-slate-400">the search.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-12">
+                The page you are looking for may have been moved, archived, or no longer exists within our current
+                ledger.
+            </p>
+
+            <div class="space-y-10">
+                <a href="/"
+                    class="inline-block bg-black text-white px-16 py-5 text-[10px] font-black uppercase tracking-[0.4em] hover:bg-slate-800 transition-all rounded-sm shadow-xl">
+                    Return to Home
+                </a>
+
+                <nav
+                    class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 pt-8 border-t border-slate-100">
+                    <a href="/stories"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Latest
+                        Articles</a>
+                    <a href="/categories"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Browse
+                        Categories</a>
+                    <a href="/contact"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors">Contact
+                        Bureau</a>
+                </nav>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-100 text-black pt-20 pb-12 mt-20 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
+                <!-- Brand & About -->
+                <div class="space-y-8">
+                    <div>
+                        <a href="./index.html">
+                            <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle
+                            </h2>
+                        </a>
+                        <p class="mt-4 text-sm text-slate-500 leading-relaxed font-light">
+                            Exploring the intersection of design, technology, and contemporary culture. A publication
+                            for the modern
+                            mind.
+                        </p>
+                    </div>
+                    <div class="flex gap-5">
+                        <a href="https://www.facebook.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.x.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+                            aria-label="X">
+                            <svg class="w-4 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Navigation</h3>
+                    <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                        <li><a href="./index.html" class="hover:text-slate-600 transition-colors">Home</a></li>
+                        <li><a href="./home-2.html" class="hover:text-slate-600 transition-colors">Home2</a>
+                        </li>
+                        <li><a href="./category1.html" class="hover:text-slate-600 transition-colors">Categories</a>
+                        </li>
+                        <li><a href="./featured.html" class="hover:text-slate-600 transition-colors">Featured</a></li>
+                        <li><a href="./latest.html" class="hover:text-slate-600 transition-colors">Latest</a></li>
+                        <li><a href="./blog.html" class="hover:text-slate-600 transition-colors">Blog</a></li>
+                        <li><a href="./contact.html" class="hover:text-slate-600 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Legal</h3>
+                    <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                        <li><a href="./privacy-policy.html" class="hover:text-slate-600 transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="./tos.html" class="hover:text-slate-600 transition-colors">Terms of Service</a>
+                        </li>
+                        <li><a href="./faq.html" class="hover:text-slate-600 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dispatch -->
+                <div class="bg-white p-8 border border-gray-200">
+                    <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-4">Weekly Dispatch</h3>
+                    <p class="text-[11px] text-slate-500 leading-relaxed font-light mb-6">
+                        A curated selection of the week's most important stories.
+                    </p>
+                    <button onclick="showPopup()"
+                        class="w-full bg-slate-900 text-white py-4 text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-200">
+                        Join the Collective
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">
+                    &copy; 2026 THE CHRONICLE MEDIA GROUP. ALL RIGHTS RESERVED.
+                </p>
+                <p class="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">
+                    Designed by MR Coders Hub
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Newsletter Popup (Integrated from news-letter.html) -->
+    <style>
+        /* Smooth Entrance Animation */
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-pop-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Hide pop-up initially */
+        #newsletter-popup {
+            display: none;
+        }
+    </style>
+
+    <div id="newsletter-popup"
+        class="fixed bottom-8 right-8 z-50 w-[380px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border border-slate-100 animate-pop-up">
+
+        <button onclick="closePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"
+            aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="p-10">
+            <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-900 mb-3 block">Weekly
+                Dispatch</span>
+            <h2 class="text-3xl font-bold serif leading-tight mb-4 text-slate-900">
+                Stories worth <br><span class="italic font-medium text-slate-500">your time.</span>
+            </h2>
+
+            <p class="text-sm text-slate-500 leading-relaxed mb-8 font-light">
+                A curated selection of ideas shaping culture, technology, and design. Delivered every Sunday.
+            </p>
+
+            <form id="newsletter-form" class="space-y-4" onsubmit="handleSubscribe(event)">
+                <div class="space-y-1">
+                    <label class="text-[9px] font-black uppercase tracking-widest text-slate-400">Email Address</label>
+                    <input type="email" required
+                        class="w-full bg-transparent border-b border-slate-200 py-2 transition-all focus:border-slate-900 outline-none placeholder-slate-300 text-sm font-light"
+                        placeholder="email@example.com">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-slate-900 text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-slate-200 mt-2">
+                    Join the Collective
+                </button>
+            </form>
+
+            <div id="newsletter-success" class="hidden text-center py-8">
+                <svg class="w-12 h-12 text-slate-900 mx-auto mb-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <h3 class="text-xl font-bold serif text-slate-900">Subscribed</h3>
+                <p class="text-sm text-slate-500 mt-2">Welcome to the collective.</p>
+            </div>
+
+            <button onclick="closePopup()"
+                class="w-full text-center mt-6 text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-600 transition-colors">
+                No thanks
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('newsletter-popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('newsletter-popup').style.display = 'none';
+            // Reset form on close
+            setTimeout(() => {
+                document.getElementById('newsletter-form').style.display = 'block';
+                document.getElementById('newsletter-success').classList.add('hidden');
+                document.getElementById('newsletter-form').reset();
+            }, 500);
+            // Optional: Store dismissal
+            sessionStorage.setItem('newsletterDismissed', 'true');
+        }
+
+        function handleSubscribe(event) {
+            event.preventDefault();
+            document.getElementById('newsletter-form').style.display = 'none';
+            document.getElementById('newsletter-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
+
+

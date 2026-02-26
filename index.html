@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE CHRONICLE | Digital Magazine</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+  <header class="border-b border-gray-100 sticky top-0 bg-white/90 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="./index.html">
+            <span class="text-2xl sm:text-3xl font-black tracking-tighter uppercase serif">The Chronicle</span>
+          </a>
+        </div>
+
+        <nav class="hidden lg:flex space-x-8 items-center text-sm font-medium tracking-wide uppercase">
+          <a href="./index.html" class="hover:text-slate-600 transition">Home</a>
+          <a href="./home-2.html" class="hover:text-slate-600 transition">Home2</a>
+          <div class="relative group cursor-pointer h-full flex items-center">
+            <span class="hover:text-slate-600 transition py-8">Categories ↓</span>
+
+            <!-- Dropdown Menu -->
+            <div
+              class="absolute top-16 left-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="./category1.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Technology</a>
+                <a href="./category2.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Culture</a>
+                <a href="./category3.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Business</a>
+                <a href="./category4.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Travel</a>
+                <a href="./category5.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Health</a>
+                <a href="./category6.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Design</a>
+              </div>
+            </div>
+          </div>
+          <a href="./featured.html" class="hover:text-slate-600 transition">Featured</a>
+          <a href="./latest.html" class="hover:text-slate-600 transition">Latest</a>
+          <a href="./blog.html" class="hover:text-slate-600 transition">Blog</a>
+          <a href="./contact.html" class="hover:text-slate-600 transition">Contact</a>
+
+          <div class="relative group cursor-pointer h-full flex items-center ml-2">
+            <span class="hover:text-slate-600 transition py-8 flex items-center">
+              <!-- Profile Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </span>
+
+            <!-- Dropdown Menu -->
+            <div id="auth-dropdown"
+              class="absolute top-16 right-0 w-40 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="./login.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors border-b border-gray-50">Log
+                  In</a>
+                <a href="./signup.html"
+                  class="block px-6 py-3 text-sm hover:bg-gray-50 hover:text-slate-600 transition-colors">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="lg:hidden flex items-center space-x-1 sm:space-x-2">
+          <!-- Mobile Account Icon -->
+          <div class="relative flex items-center">
+            <button id="mobileUserToggle" class="p-2 text-slate-900 hover:text-slate-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </button>
+            <!-- Mobile Auth Dropdown -->
+            <div id="mobileAuthDropdown"
+              class="hidden absolute top-full right-0 mt-2 w-48 bg-white shadow-2xl border border-gray-100 z-[110] py-2 rounded-sm transform origin-top-right">
+              <a href="./login.html"
+                class="block px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-900 hover:bg-gray-50 border-b border-gray-50">Log
+                In</a>
+              <a href="./signup.html"
+                class="block px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-900 hover:bg-gray-50">Sign
+                Up</a>
+            </div>
+          </div>
+
+          <button id="menuToggle" class="p-2 text-slate-900">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu"
+      class="hidden fixed top-20 left-0 w-full bg-white border-t border-gray-100 pb-8 px-4 space-y-4 shadow-xl z-[100] h-[calc(100vh-5rem)] overflow-y-auto lg:hidden">
+      <div class="flex flex-col space-y-4 pt-8">
+        <a href="./index.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Home</a>
+        <a href="./home-2.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Home2</a>
+        <a href="./featured.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Featured</a>
+        <a href="./latest.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Latest</a>
+        <a href="./blog.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Blog</a>
+
+        <!-- Categories in Mobile -->
+        <div class="space-y-4">
+          <button id="submenuToggle"
+            class="w-full flex justify-between items-center text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">
+            <span>Categories</span>
+            <svg id="submenuArrow" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="mobileSubmenu" class="hidden pl-4 space-y-4 border-l border-gray-100 mt-2">
+            <a href="./category1.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Technology</a>
+            <a href="./category2.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Culture</a>
+            <a href="./category3.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Business</a>
+            <a href="./category4.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Travel</a>
+            <a href="./category5.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Health</a>
+            <a href="./category6.html"
+              class="block text-xs font-bold uppercase tracking-widest hover:text-slate-600 transition">Design</a>
+          </div>
+        </div>
+
+        <a href="./contact.html"
+          class="text-sm font-bold uppercase tracking-widest hover:text-slate-600 transition">Contact</a>
+      </div>
+    </nav>
+
+    <script src="./assets/js/menu.js" defer></script>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <section class="relative h-[75vh] w-full overflow-hidden rounded-sm group mt-4 mb-16">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+        alt="Featured Story"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-8 md:p-16 max-w-3xl text-white">
+        <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">The Brutalist Revival: Why Concrete is Reclaiming
+          the City Skyline</h1>
+        <p class="text-lg text-gray-200 mb-6 font-light leading-relaxed">Exploring the controversial resurgence of
+          monolithic design in modern urban planning and the architects leading the charge.</p>
+        <div class="flex items-center text-sm font-medium">
+          <span class="border-r border-white/30 pr-4 mr-4">By Julian Thorne</span>
+          <span>October 24, 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-b border-gray-100 bg-white">
+      <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+
+        <div class="w-full md:w-1/3">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+              alt="The Chronicle Studio"
+              class="w-full h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+          </div>
+        </div>
+
+        <div class="w-full md:w-2/3 lg:pr-12 mt-5 ">
+          <span class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-4 block">About the
+            Chronicle</span>
+
+          <h2 class="text-4xl lg:text-5xl font-black serif leading-tight text-slate-900 mb-6">
+            Curating the intersection of <span class="italic font-medium">Design & Innovation.</span>
+          </h2>
+
+          <div class="space-y-4 max-w-2xl">
+            <p class="text-lg text-slate-700 leading-relaxed font-light">
+              Founded in 2024, <span class="font-semibold">The Chronicle</span> is a digital-first publication dedicated
+              to the ideas shaping our future. We move beyond the headlines to explore the cultural shifts and
+              technological breakthroughs that matter.
+            </p>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              Our mission is simple: to provide a sanctuary for deep-dive journalism and high-fidelity aesthetics in an
+              era of rapid-fire content. We write for the architects, the creators, and the critical thinkers.
+            </p>
+          </div>
+
+          <div class="pt-8 border-t border-gray-100">
+            <a href="about.html"
+              class="group inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-900 transition-colors hover:text-slate-600">
+              Meet the Editorial Team
+              <span class="ml-2 transform transition-transform group-hover:translate-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="mb-20 mt-20">
+      <div class="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
+        <h2 class="text-3xl font-bold serif">Editor's Picks</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <article class="group">
+          <div class="overflow-hidden mb-4">
+            <img src="https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?auto=format&fit=crop&w=800&q=80"
+              class="w-full aspect-[4/3] object-cover transition duration-500 group-hover:scale-105">
+          </div>
+          <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Technology</span>
+          <a href="./category1.html">
+            <h3 class="text-xl font-bold mt-2 leading-snug group-hover:text-black cursor-pointer">The Silent
+              Revolution of Quantum Computing</h3>
+          </a>
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">How subatomic processing is solving problems we didn't
+            even know we had.</p>
+        </article>
+        <article class="group">
+          <div class="overflow-hidden mb-4">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+              class="w-full aspect-[4/3] object-cover transition duration-500 group-hover:scale-105">
+          </div>
+          <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">LifeStyle</span>
+          <a href="./category2.html">
+            <h3 class="text-xl font-bold mt-2 leading-snug group-hover:text-black cursor-pointer">Minimalism as a
+              Survival Strategy</h3>
+          </a>
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">In an age of hyper-consumption, the most radical act is
+            wanting less.</p>
+        </article>
+        <article class="group">
+          <div class="overflow-hidden mb-4">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+              class="w-full aspect-[4/3] object-cover transition duration-500 group-hover:scale-105">
+          </div>
+          <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Travel</span>
+          <a href="./category4.html">
+            <h3 class="text-xl font-bold mt-2 leading-snug group-hover:text-black cursor-pointer">Rewilding the
+              Scottish Highlands</h3>
+          </a>
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">The ambitious project to bring back ancient forests and
+            apex predators.</p>
+        </article>
+      </div>
+    </section>
+
+
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 border-t border-gray-100 pt-10">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-bold mb-8 uppercase tracking-tighter">Latest Stories</h2>
+        <div class="space-y-12">
+          <div class="flex flex-col md:flex-row gap-6 items-center">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80"
+              class="w-full md:w-48 h-32 object-cover">
+            <div>
+              <span class="text-[10px] font-black uppercase text-gray-400">Business — 2 hours ago</span>
+              <a href="./category3.html">
+                <h4 class="text-xl font-bold mt-1 hover:text-slate-600 cursor-pointer">The Rise of Sovereign Wealth
+                  Funds
+                </h4>
+              </a>
+              <p class="text-gray-600 text-sm mt-2 line-clamp-2">Governments are playing the stock market like never
+                before, and it's changing global power dynamics.</p>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-6 items-center">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=400&q=80"
+              class="w-full md:w-48 h-32 object-cover">
+            <div>
+              <span class="text-[10px] font-black uppercase text-gray-400">Design — 5 hours ago</span>
+              <a href="./category6.html">
+                <h4 class="text-xl font-bold mt-1 hover:text-slate-600 cursor-pointer">The Ethics of Generative
+                  Interface
+                  Design</h4>
+              </a>
+              <p class="text-gray-600 text-sm mt-2 line-clamp-2">Can an AI understand empathy? Designers weigh in on the
+                future of user experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <h2 class="text-2xl font-bold mb-8 uppercase tracking-tighter border-b-2 border-black pb-2">Most Read</h2>
+        <ul class="space-y-6">
+          <li class="flex gap-4">
+            <span class="text-4xl font-black text-gray-200 serif">01</span>
+            <div>
+              <a href="./article1.html">
+                <h5 class="font-bold text-sm leading-tight hover:text-slate-600 cursor-pointer italic">Why We Are
+                  Moving
+                  Toward a 4-Day Work Week</h5>
+              </a>
+              <p class="text-xs text-gray-400 mt-1">12k Reads</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-4xl font-black text-gray-200 serif">02</span>
+            <div>
+              <a href="./article2.html">
+                <h5 class="font-bold text-sm leading-tight hover:text-slate-600 cursor-pointer italic">The Best
+                  Boutique
+                  Hotels in Scandinavia</h5>
+              </a>
+              <p class="text-xs text-gray-400 mt-1">9k Reads</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-4xl font-black text-gray-200 serif">03</span>
+            <div>
+              <a href="./article3.html">
+                <h5 class="font-bold text-sm leading-tight hover:text-slate-600 cursor-pointer italic">The Return of
+                  Analog Photography</h5>
+              </a>
+              <p class="text-xs text-gray-400 mt-1">7k Reads</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <section>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-28">
+
+        <a href="./category1.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+            alt="Technology"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Technology</span>
+          </div>
+        </a>
+
+        <a href="./category2.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80"
+            alt="Lifestyle"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Lifestyle</span>
+          </div>
+        </a>
+
+        <a href="./category3.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+            alt="Business"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Business</span>
+          </div>
+        </a>
+
+        <a href="./category4.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80"
+            alt="Travel"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2 2 2 0 012 2v.657m1.945-8.444c.32.44.64.91.955 1.415a10.007 10.007 0 011.5 5.378c0 5.523-4.477 10-10 10S2 17.523 2 12s4.477-10 10-10c1.64 0 3.176.394 4.53 1.103M15.033 18.003l.011-.01" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Travel</span>
+          </div>
+        </a>
+
+        <a href="./category5.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
+            alt="Health"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Health</span>
+          </div>
+        </a>
+
+        <a href="./category6.html" class="group relative block h-60 overflow-hidden rounded-3xl shadow-lg">
+          <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80"
+            alt="Design"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+          <div class="relative h-full flex flex-col items-center justify-center">
+            <div
+              class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+            </div>
+            <span class="text-2xl font-black text-white uppercase tracking-wider">Design</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Underground & Culture Section -->
+    <section class="mt-40 mb-40">
+      <div class="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
+        <div class="max-w-2xl">
+          <span class="text-xs font-black uppercase tracking-[0.4em] text-slate-900 block mb-4">Underground &
+            Culture</span>
+          <h2 class="text-5xl md:text-7xl font-black serif tracking-tight">The pulse of the <span
+              class="italic text-slate-400">unseen.</span></h2>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
+        <div class="space-y-6 group cursor-pointer">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <h3 class="text-xl font-bold serif leading-tight">Neon Shadows: Tokyo's Midnight Jazz Scene.</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">A deep dive into the hidden basement bars where
+            jazz history is being remade.</p>
+        </div>
+
+        <div class="space-y-6 group cursor-pointer pt-12 md:pt-0">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1200&q=80"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <h3 class="text-xl font-bold serif leading-tight">The Brutalist Revival in Eastern Europe.</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">Why concrete monoliths are becoming the new
+            symbols of high-end living.</p>
+        </div>
+
+        <div class="space-y-6 group cursor-pointer">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <h3 class="text-xl font-bold serif leading-tight">Minimalism in the Age of Noise.</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">Psychological strategies for maintaining mental
+            clarity in a hyper-connected world.</p>
+        </div>
+
+        <div class="space-y-6 group cursor-pointer pt-12 md:pt-0">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <h3 class="text-xl font-bold serif leading-tight">The Ethics of Analog Survival.</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">Can we truly escape the digital ledger, or is
+            analog just a temporary refuge?</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 pt-24 pb-12 border-b border-slate-100 text-center">
+      <h1 class="text-7xl md:text-8xl font-black serif tracking-tighter mb-4">Get in <span
+          class="italic text-slate-400">Touch.</span></h1>
+      <p class="text-xl text-slate-500 font-light max-w-2xl mx-auto">Whether you have a story to pitch, a partnership in
+        mind,
+        or just want to say hello—our doors are always open.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 mt-20">
+
+      <div class="lg:col-span-4 space-y-16">
+        <section>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Direct Lines</h3>
+          <div class="space-y-6">
+            <div>
+              <p class="text-[10px] font-bold uppercase text-slate-400 mb-1">Editorial & Pitches</p>
+              <a href="mailto:editorial@thechronicle.com"
+                class="text-lg font-medium hover:text-slate-600 transition-colors">editorial@thechronicle.com</a>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold uppercase text-slate-400 mb-1">Press & Partnerships</p>
+              <a href="mailto:press@thechronicle.com"
+                class="text-lg font-medium hover:text-slate-600 transition-colors">press@thechronicle.com</a>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-6">Our Bureau</h3>
+          <p class="text-lg text-slate-700">London, United Kingdom<br><span class="text-slate-400 text-sm italic">Global
+              Remote Collective</span></p>
+        </section>
+
+        <section>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-6">Follow the Narrative</h3>
+          <div class="flex gap-6">
+
+            <a href="https://www.facebook.com/"
+              class="text-slate-400 hover:text-slate-600 transition-all transform hover:-translate-y-1"
+              aria-label="Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.x.com/"
+              class="text-slate-400 hover:text-slate-600 transition-all transform hover:-translate-y-1" aria-label="X">
+              <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/"
+              class="text-slate-400 hover:text-slate-600 transition-all transform hover:-translate-y-1"
+              aria-label="Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <a href="https://www.pinterest.com/"
+              class="text-slate-400 hover:text-slate-600 transition-all transform hover:-translate-y-1"
+              aria-label="Pinterest">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.017 0C5.396 0 0 5.397 0 12.017c0 5.078 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.965 1.406-5.965s-.359-.718-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.259 7.929-7.259 4.164 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.607 0 12.031-5.396 12.031-12.017C24.02 5.397 18.637 0 12.017 0z" />
+              </svg>
+            </a>
+
+          </div>
+        </section>
+      </div>
+
+      <div class="lg:col-span-8 bg-slate-50 p-8 md:p-12 lg:p-16 rounded-sm">
+        <form id="index-contact-form" class="space-y-8">
+          <div id="index-success-message"
+            class="hidden bg-slate-50 text-slate-800 p-4 rounded-sm border border-slate-200 text-sm font-medium">
+            Message dispatched successfully. We requested to hear from you.
+          </div>
+          <div id="index-error-message"
+            class="hidden bg-slate-50 text-slate-700 p-4 rounded-sm border border-slate-200 text-sm font-medium">
+            Error sending message.
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Full Name</label>
+              <input type="text" id="index-name" required
+                class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 placeholder-slate-400 font-light"
+                placeholder="Jane Doe">
+            </div>
+            <div class="space-y-2">
+              <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Email Address</label>
+              <input type="email" id="index-email" required
+                class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 placeholder-slate-400 font-light"
+                placeholder="jane@example.com">
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Subject</label>
+            <select id="index-subject"
+              class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 font-light appearance-none cursor-pointer">
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Editorial Pitch">Editorial Pitch</option>
+              <option value="Collaboration">Collaboration / Partnership</option>
+              <option value="Feedback">Feedback</option>
+            </select>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Message</label>
+            <textarea id="index-message" rows="5" required
+              class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 placeholder-slate-400 font-light resize-none"
+              placeholder="How can we help you?"></textarea>
+          </div>
+
+          <div class="pt-4">
+            <button type="submit" id="index-submit-btn"
+              class="bg-slate-900 text-white px-10 py-4 rounded-sm text-xs font-bold uppercase tracking-[0.2em] hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-300">
+              Send Message
+            </button>
+          </div>
+        </form>
+
+        <script type="module">
+          import { mockApi } from './assets/js/mock-api.js';
+
+          const form = document.getElementById('index-contact-form');
+          const successMsg = document.getElementById('index-success-message');
+          const errorMsg = document.getElementById('index-error-message');
+          const btn = document.getElementById('index-submit-btn');
+
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            const name = document.getElementById('index-name').value;
+            const email = document.getElementById('index-email').value;
+            const subject = document.getElementById('index-subject').value;
+            const message = document.getElementById('index-message').value;
+
+            try {
+              await mockApi.sendMessage({ name, email, subject, message });
+
+              successMsg.classList.remove('hidden');
+              form.reset();
+            } catch (err) {
+              console.error(err);
+              errorMsg.textContent = "Error: " + err.message;
+              errorMsg.classList.remove('hidden');
+            } finally {
+              btn.disabled = false;
+              btn.textContent = 'Send Message';
+            }
+          });
+        </script>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-100 text-black pt-20 pb-12 mt-20 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-gray-200">
+        <!-- Brand & About -->
+        <div class="space-y-8">
+          <div>
+            <a href="./index.html">
+              <h2 class="text-3xl font-black serif tracking-tighter uppercase text-black">The Chronicle</h2>
+            </a>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed font-light">
+              Exploring the intersection of design, technology, and contemporary culture. A publication for the modern
+              mind.
+            </p>
+          </div>
+          <div class="flex gap-5">
+            <a href="https://www.facebook.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+              aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.x.com/" class="text-slate-400 hover:text-slate-600 transition-all" aria-label="X">
+              <svg class="w-4 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/" class="text-slate-400 hover:text-slate-600 transition-all"
+              aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Navigation</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./index.html" class="hover:text-slate-600 transition-colors">Home</a></li>
+            <li><a href="./home-2.html" class="hover:text-slate-600 transition-colors">Home2</a></li>
+            <li><a href="./category1.html" class="hover:text-slate-600 transition-colors">Categories</a></li>
+            <li><a href="./featured.html" class="hover:text-slate-600 transition-colors">Featured</a></li>
+            <li><a href="./latest.html" class="hover:text-slate-600 transition-colors">Latest</a></li>
+            <li><a href="./blog.html" class="hover:text-slate-600 transition-colors">Blog</a></li>
+            <li><a href="./contact.html" class="hover:text-slate-600 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-8">Legal</h3>
+          <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <li><a href="./privacy-policy.html" class="hover:text-slate-600 transition-colors">Privacy Policy</a></li>
+            <li><a href="./tos.html" class="hover:text-slate-600 transition-colors">Terms of Service</a></li>
+            <li><a href="./faq.html" class="hover:text-slate-600 transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Dispatch -->
+        <div class="bg-white p-8 border border-gray-200">
+          <h3 class="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-4">Weekly Dispatch</h3>
+          <p class="text-[11px] text-slate-500 leading-relaxed font-light mb-6">
+            A curated selection of the week's most important stories.
+          </p>
+          <button onclick="showPopup()"
+            class="w-full bg-slate-900 text-white py-4 text-[10px] font-black uppercase tracking-widest hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-200">
+            Join the Collective
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">
+          &copy; 2026 THE CHRONICLE MEDIA GROUP. ALL RIGHTS RESERVED.
+        </p>
+        <p class="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">
+          Designed by MR Coders Hub
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Newsletter Popup (Integrated from news-letter.html) -->
+  <style>
+    /* Smooth Entrance Animation */
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-pop-up {
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Hide pop-up initially */
+    #newsletter-popup {
+      display: none;
+    }
+  </style>
+
+  <div id="newsletter-popup"
+    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-[calc(100%-2rem)] md:w-[380px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border border-slate-100 animate-pop-up">
+
+    <button onclick="closePopup()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"
+      aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="p-10">
+      <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-900 mb-3 block">Weekly Dispatch</span>
+      <h2 class="text-3xl font-bold serif leading-tight mb-4 text-slate-900">
+        Stories worth <br><span class="italic font-medium text-slate-500">your time.</span>
+      </h2>
+
+      <p class="text-sm text-slate-500 leading-relaxed mb-8 font-light">
+        A curated selection of ideas shaping culture, technology, and design. Delivered every Sunday.
+      </p>
+
+      <form id="newsletter-form" class="space-y-4" onsubmit="handleSubscribe(event)">
+        <div class="space-y-1">
+          <label class="text-[9px] font-black uppercase tracking-widest text-slate-400">Email Address</label>
+          <input type="email" required
+            class="w-full bg-transparent border-b border-slate-200 py-2 transition-all focus:border-slate-900 outline-none placeholder-slate-300 text-sm font-light"
+            placeholder="email@example.com">
+        </div>
+
+        <button type="submit"
+          class="w-full bg-slate-900 text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-slate-200 mt-2">
+          Join the Collective
+        </button>
+      </form>
+
+      <div id="newsletter-success" class="hidden text-center py-8">
+        <svg class="w-12 h-12 text-slate-900 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <h3 class="text-xl font-bold serif text-slate-900">Subscribed</h3>
+        <p class="text-sm text-slate-500 mt-2">Welcome to the collective.</p>
+      </div>
+
+      <button onclick="closePopup()"
+        class="w-full text-center mt-6 text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-600 transition-colors">
+        No thanks
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="./assets/js/auth.js"></script>
+  <script>
+    function showPopup() {
+      document.getElementById('newsletter-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('newsletter-popup').style.display = 'none';
+      // Reset form on close
+      setTimeout(() => {
+        document.getElementById('newsletter-form').style.display = 'block';
+        document.getElementById('newsletter-success').classList.add('hidden');
+        document.getElementById('newsletter-form').reset();
+      }, 500);
+      // Optional: Store dismissal
+      sessionStorage.setItem('newsletterDismissed', 'true');
+    }
+
+    function handleSubscribe(event) {
+      event.preventDefault();
+      document.getElementById('newsletter-form').style.display = 'none';
+      document.getElementById('newsletter-success').classList.remove('hidden');
+    }
+  </script>
+</body>
+
+</html>
