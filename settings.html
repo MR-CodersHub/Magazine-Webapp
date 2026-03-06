@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | THE CHRONICLE</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (max-width: 360px) {
+            .max-w-7xl {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 user-dashboard settings-page">
+    <header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative">
+            <a href="./index.html" class="flex items-center gap-3">
+                <span
+                    class="text-xl font-black tracking-tighter uppercase serif text-slate-900 border-b-2 border-slate-900 pb-0.5">The
+                    Chronicle</span>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="./user-dashboard.html"
+                    class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Dashboard</a>
+                <div class="h-8 w-[1px] bg-slate-100"></div>
+                <button id="logout-btn"
+                    class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-500 hover:text-red-700 transition-colors">
+                    <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+                    <span class="hidden sm:inline">Sign Out</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-6 py-12 lg:py-20">
+        <div class="mb-12">
+            <span
+                class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 block mb-4">Configuration</span>
+            <h1 class="text-5xl font-black serif tracking-tighter mb-4">Account <span
+                    class="italic text-slate-300">Settings</span></h1>
+            <p class="text-slate-500 font-light">Fine-tune your experience within the digital collective.</p>
+        </div>
+
+        <div class="space-y-8">
+            <section class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h2 class="text-xl font-black serif mb-6">Identity Protocols</h2>
+                <form class="space-y-6">
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block">Full
+                            Name</label>
+                        <input type="text" id="settings-name"
+                            class="w-full px-4 py-3 bg-slate-50 rounded-lg outline-none focus:ring-2 focus:ring-slate-950 transition-all font-medium border border-slate-100">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block">Email
+                            Address</label>
+                        <input type="email" id="settings-email" disabled
+                            class="w-full px-4 py-3 bg-slate-100 rounded-lg font-medium border border-slate-100 text-slate-400 cursor-not-allowed">
+                    </div>
+                    <button type="submit"
+                        class="bg-slate-950 text-white text-[10px] font-black uppercase tracking-widest px-8 py-4 rounded-sm hover:bg-slate-800 transition-all">Update
+                        Identity</button>
+                </form>
+            </section>
+
+            <section class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h2 class="text-xl font-black serif mb-6">Preferences</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between py-4 border-b border-slate-50">
+                        <div>
+                            <p class="text-sm font-bold">Email Briefing</p>
+                            <p class="text-xs text-slate-400">Receive weekly curated dispatches.</p>
+                        </div>
+                        <input type="checkbox" checked class="w-4 h-4 accent-slate-950">
+                    </div>
+                    <div class="flex items-center justify-between py-4">
+                        <div>
+                            <p class="text-sm font-bold">Dark Mode</p>
+                            <p class="text-xs text-slate-400">Optimize for low-light reading.</p>
+                        </div>
+                        <input type="checkbox" class="w-4 h-4 accent-slate-950">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module">
+        import { mockApi } from './assets/js/mock-api.js';
+        lucide.createIcons();
+
+        const session = JSON.parse(localStorage.getItem('chronicle_session'));
+        if (!session) window.location.href = 'login.html';
+
+        const nameInput = document.getElementById('settings-name');
+        const emailInput = document.getElementById('settings-email');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        emailInput.value = session.email;
+
+        mockApi.getUserProfile(session.uid).then(user => {
+            if (user && user.full_name) {
+                nameInput.value = user.full_name;
+            }
+        });
+
+        logoutBtn.onclick = () => {
+            localStorage.removeItem('chronicle_session');
+            window.location.href = 'login.html';
+        };
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

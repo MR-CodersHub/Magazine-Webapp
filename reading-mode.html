@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Mode | THE CHRONICLE</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (max-width: 640px) {
+            .article-content {
+                font-size: 1.125rem !important;
+                line-height: 1.75 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 user-dashboard reading-mode-page">
+    <header
+        class="h-16 bg-white/50 backdrop-blur-md border-b border-slate-50 sticky top-0 z-50 transition-opacity hover:opacity-100 opacity-20 group">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <a href="./user-dashboard.html"
+                class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Back to Dashboard
+            </a>
+            <div class="flex items-center gap-6">
+                <button id="reading-exit"
+                    class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors uppercase">Exit
+                    Reading Mode</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-6 py-20 lg:py-32">
+        <article class="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <header class="space-y-6">
+                <span
+                    class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 block text-center">Featured
+                    Dispatch</span>
+                <h1 class="text-4xl md:text-6xl font-black serif tracking-tighter leading-tight text-center">The
+                    Aesthetics of Minimalist Architecture</h1>
+                <p class="text-lg text-slate-500 font-light italic text-center">Exploring the shifting boundary between
+                    human intent and architectural form.</p>
+            </header>
+
+            <div class="h-[1px] w-12 bg-slate-900 mx-auto"></div>
+
+            <div class="article-content text-xl leading-relaxed font-light text-slate-700 space-y-8">
+                <p>Architecture, in its most essential form, is the art of space. As we navigate the post-digital age,
+                    the move toward minimalism isn't merely a stylistic choice; it's a profound response to the
+                    overwhelming complexity of modern data-driven environments.</p>
+                <p>Minimalism, as a philosophy, seeks to distill a structure to its core elements, removing the sensory
+                    noise that distracts us from the experience of place. In this dispatch, we explore the silent
+                    evolution of urban spaces through the lens of reductive design.</p>
+                <p>Imagine a structure where the material is the message. Wood, concrete, and light become the primary
+                    actors in a silent performance of form. Adaptive reuse projects across the globe are turning
+                    forgotten industrial sanctuaries into minimalist havens, proving that the past can be reimagined
+                    through a lens of extreme clarity.</p>
+            </div>
+
+            <footer class="pt-20 border-t border-slate-100 text-center">
+                <p class="text-[10px] font-black uppercase tracking-widest text-slate-300">End of Dispatch</p>
+                <a href="./user-dashboard.html"
+                    class="mt-8 inline-block text-[10px] font-black uppercase tracking-widest text-slate-900 border-b border-slate-900 pb-1">Return
+                    to Archive</a>
+            </footer>
+        </article>
+    </main>
+
+    <script type="module">
+        lucide.createIcons();
+        const exitBtn = document.getElementById('reading-exit');
+        if (exitBtn) {
+            exitBtn.onclick = () => window.location.href = 'user-dashboard.html';
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
