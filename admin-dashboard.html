@@ -125,9 +125,10 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 text-slate-400 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out border-r border-white/5">
-            <div class="p-8 border-b border-white/5 flex items-center justify-between">
+            <div class="p-6 md:p-8 border-b border-white/5 flex items-center justify-between">
                 <a href="./index.html" class="flex-shrink-0 flex items-center">
-                    <span class="text-white text-2xl sm:text-3xl font-black tracking-tighter uppercase serif">The
+                    <span
+                        class="text-white text-xl sm:text-2xl lg:text-3xl font-black tracking-tighter uppercase serif">The
                         Chronicle</span>
                 </a>
                 <button id="close-sidebar" class="lg:hidden text-slate-400 hover:text-white">
@@ -135,7 +136,7 @@
                 </button>
             </div>
 
-            <nav class="p-6 space-y-8 overflow-y-auto h-[calc(100vh-100px)]">
+            <nav class="p-4 md:p-6 space-y-6 md:space-y-8 overflow-y-auto h-[calc(100vh-100px)] flex flex-col">
                 <div class="space-y-1">
                     <p class="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 mb-4">Core
                         Management</p>
@@ -245,7 +246,7 @@
                 </div>
             </header>
 
-            <div id="main-sections-container" class="p-8 lg:p-12">
+            <div id="main-sections-container" class="p-4 md:p-8 lg:p-12">
                 <!-- Dashboard Section -->
                 <section id="dashboard" class="admin-section dashboard-section active space-y-12">
                     <!-- Welcome Section -->
@@ -439,16 +440,16 @@
                                 <thead>
                                     <tr class="border-b border-slate-100 bg-slate-50/50">
                                         <th
-                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            class="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                                             Member</th>
                                         <th
-                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            class="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                                             Email</th>
                                         <th
-                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            class="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                                             Role</th>
                                         <th
-                                            class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                            class="px-4 md:px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                                             Joined</th>
                                     </tr>
                                 </thead>
@@ -493,10 +494,10 @@
                             <thead>
                                 <tr class="border-b border-slate-100 bg-slate-50/50">
                                     <th
-                                        class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                        class="px-4 md:px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
                                         Title</th>
                                     <th
-                                        class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                        class="px-4 md:px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
                                         Author</th>
                                     <th
                                         class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-right">
@@ -505,9 +506,10 @@
                             </thead>
                             <tbody>
                                 <tr class="hover:bg-slate-50 transition-all">
-                                    <td class="px-8 py-5 text-sm font-bold">The Future of Minimalist Grid Systems</td>
-                                    <td class="px-8 py-5 text-sm font-light italic">Julian Vane</td>
-                                    <td class="px-8 py-5 text-right flex gap-2 justify-end">
+                                    <td class="px-4 md:px-8 py-5 text-sm font-bold">The Future of Minimalist Grid
+                                        Systems</td>
+                                    <td class="px-4 md:px-8 py-5 text-sm font-light italic">Julian Vane</td>
+                                    <td class="px-4 md:px-8 py-5 text-right flex gap-2 justify-end">
                                         <button class="p-2 text-green-500 hover:bg-green-50 rounded-lg"
                                             title="Approve"><i data-lucide="check" class="w-4 h-4"></i></button>
                                         <button class="p-2 text-red-500 hover:bg-red-50 rounded-lg" title="Reject"><i
@@ -523,7 +525,7 @@
                 <section id="analytics" class="admin-section analytics-section space-y-12">
                     <h2 class="text-4xl font-black serif">Platform <span class="italic text-slate-300">Analytics</span>
                     </h2>
-                    <div class="bg-white p-12 rounded-3xl border border-slate-100 text-center">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-100 text-center">
                         <i data-lucide="bar-chart" class="w-16 h-16 mx-auto mb-6 text-slate-200"></i>
                         <h3 class="text-xl font-bold mb-4">Lumina Insight Engine</h3>
                         <p class="text-slate-500">Real-time data visualization is being processed.</p>
@@ -549,7 +551,7 @@
                 <section id="settings" class="admin-section settings-section space-y-12">
                     <h2 class="text-4xl font-black serif">System <span class="italic text-slate-300">Protocols</span>
                     </h2>
-                    <div class="bg-white p-12 rounded-3xl border border-slate-100 space-y-8">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-100 space-y-8">
                         <div class="flex items-center justify-between p-6 bg-slate-50 rounded-2xl">
                             <div>
                                 <h4 class="font-bold">Maintenance Mode</h4>
@@ -652,30 +654,37 @@
             };
         }
 
-        // Session Check
-        const session = JSON.parse(localStorage.getItem('chronicle_session'));
+        // Session Check - Ensure direct access as requested
+        let session = JSON.parse(localStorage.getItem('chronicle_session'));
 
         if (!session || session.role !== 'admin') {
-            window.location.href = 'login.html';
-        } else {
-            document.body.classList.remove('loading');
-
-            // Fetch profile for better display
-            (async () => {
-                try {
-                    const user = await mockApi.getUserProfile(session.uid);
-                    const name = user ? user.full_name : session.email.split('@')[0];
-                    if (adminNameDisplay) adminNameDisplay.textContent = name;
-                    if (welcomeName) welcomeName.textContent = name;
-                } catch (err) {
-                    const fallback = session.email.split('@')[0];
-                    if (adminNameDisplay) adminNameDisplay.textContent = fallback;
-                    if (welcomeName) welcomeName.textContent = fallback;
-                }
-            })();
-
-            loadDashboardData();
+            const dummySession = {
+                email: 'admin@thechronicle.com',
+                role: 'admin',
+                uid: 'admin-123',
+                timestamp: new Date().getTime()
+            };
+            localStorage.setItem('chronicle_session', JSON.stringify(dummySession));
+            session = dummySession;
         }
+
+        document.body.classList.remove('loading');
+
+        // Fetch profile for better display
+        (async () => {
+            try {
+                const user = await mockApi.getUserProfile(session.uid);
+                const name = user ? user.full_name : session.email.split('@')[0];
+                if (adminNameDisplay) adminNameDisplay.textContent = name;
+                if (welcomeName) welcomeName.textContent = name;
+            } catch (err) {
+                const fallback = session.email.split('@')[0];
+                if (adminNameDisplay) adminNameDisplay.textContent = fallback;
+                if (welcomeName) welcomeName.textContent = fallback;
+            }
+        })();
+
+        loadDashboardData();
 
         logoutBtn.addEventListener('click', () => {
             localStorage.removeItem('chronicle_session');
@@ -774,7 +783,7 @@
                         const date = u.created_at ? new Date(u.created_at).toLocaleDateString() : 'UNKNOWN';
                         const row = `
                             <tr class="hover:bg-slate-50 transition-colors group">
-                                <td class="px-8 py-6">
+                                <td class="px-4 md:px-8 py-6">
                                     <div class="flex items-center gap-3">
                                         <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-900 group-hover:bg-slate-950 group-hover:text-white transition-all">
                                             ${u.full_name ? u.full_name.charAt(0) : 'U'}
@@ -782,13 +791,13 @@
                                         <span class="text-sm font-bold text-slate-950">${u.full_name || 'Anonymous Member'}</span>
                                     </div>
                                 </td>
-                                <td class="px-8 py-6 text-sm text-slate-500 font-light">${u.email}</td>
-                                <td class="px-8 py-6">
+                                <td class="px-4 md:px-8 py-6 text-sm text-slate-500 font-light">${u.email}</td>
+                                <td class="px-4 md:px-8 py-6">
                                     <span class="${u.role === 'admin' ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-600'} text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
                                         ${u.role || 'user'}
                                     </span>
                                 </td>
-                                <td class="px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
+                                <td class="px-4 md:px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
                             </tr>
                         `;
                         usersTableBody.insertAdjacentHTML('beforeend', row);
@@ -814,9 +823,9 @@
                         const date = new Date(msg.created_at).toLocaleDateString();
                         const row = `
                             <tr class="hover:bg-slate-50 transition-colors group">
-                                <td class="px-8 py-6 text-sm font-bold text-slate-950">${msg.name}</td>
-                                <td class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">${msg.subject}</td>
-                                <td class="px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
+                                <td class="px-4 md:px-8 py-6 text-sm font-bold text-slate-950">${msg.name}</td>
+                                <td class="px-4 md:px-8 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">${msg.subject}</td>
+                                <td class="px-4 md:px-8 py-6 text-xs text-slate-400 font-medium">${date}</td>
                             </tr>
                         `;
                         messagesTableBody.insertAdjacentHTML('beforeend', row);
@@ -860,11 +869,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-

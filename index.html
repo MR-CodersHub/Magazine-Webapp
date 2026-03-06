@@ -46,6 +46,39 @@
         transform: none !important;
       }
     }
+
+    /* Tablet-only adjustment: improve auth dropdown appearance at ~768px */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      #mobileAuthDropdown {
+        padding: 1.25rem !important;
+        width: 240px !important;
+        /* Set a more balanced width for tablets */
+      }
+
+      #mobileAuthDropdown .flex.flex-col {
+        gap: 0.75rem !important;
+        /* Reduce vertical gap between items */
+        align-items: center !important;
+        /* Center the links */
+      }
+
+      /* Override Tailwind's space-y-6 */
+      #mobileAuthDropdown .flex.flex-col>*+* {
+        margin-top: 0 !important;
+      }
+
+      #mobileAuthDropdown a {
+        padding: 0.25rem 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      #mobileAuthDropdown .bg-gray-100 {
+        margin: 0.25rem 0 !important;
+        opacity: 0.5;
+        /* Subtler divider */
+      }
+    }
   </style>
 </head>
 
@@ -648,13 +681,13 @@
               <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Full Name</label>
               <input type="text" id="index-name" required
                 class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 placeholder-slate-400 font-light"
-                placeholder="Jane Doe">
+                placeholder="">
             </div>
             <div class="space-y-2">
               <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Email Address</label>
               <input type="email" id="index-email" required
                 class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 placeholder-slate-400 font-light"
-                placeholder="jane@example.com">
+                placeholder="">
             </div>
           </div>
 

@@ -447,11 +447,21 @@
             const logoutBtn = document.getElementById('logout-btn');
             const userNameDisplay = document.getElementById('user-name-display');
 
-            // Session logic
-            const session = JSON.parse(localStorage.getItem('chronicle_session'));
+            // Session logic - Ensure direct access as requested
+            let session = JSON.parse(localStorage.getItem('chronicle_session'));
+
+            if (!session || session.role !== 'user') {
+                session = {
+                    email: 'user@thechronicle.com',
+                    role: 'user',
+                    uid: 'user-123',
+                    timestamp: new Date().getTime()
+                };
+                localStorage.setItem('chronicle_session', JSON.stringify(session));
+            }
 
             if (session && session.role === 'user') {
-                // Populate data if logged in
+                // Populate data
                 userNameDisplay.textContent = session.email.split('@')[0].toUpperCase();
 
                 try {
@@ -502,11 +512,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-

@@ -17,33 +17,35 @@ function initData() {
         users = [];
     }
 
+    // Do not pre-populate credentials in the UI or initial data structure.
+    // The system should allow direct dashboard access as per user requirements.
     const adminUser = {
         uid: 'admin-123',
-        email: 'admin@gmail.com',
-        password: 'admin123',
+        email: '',
+        password: '',
         full_name: 'System Admin',
         role: 'admin',
         created_at: new Date().toISOString()
     };
 
-    // Find if admin exists by UID or Email
-    const existingAdminIndex = users.findIndex(u => u.uid === 'admin-123' || u.email === 'admin@gmail.com');
+    // Find if admin exists by UID
+    const existingAdminIndex = users.findIndex(u => u.uid === 'admin-123');
 
     if (existingAdminIndex !== -1) {
-        // Update existing admin credentials
+        // Update existing admin metadata but keep credentials empty
         users[existingAdminIndex] = { ...users[existingAdminIndex], ...adminUser };
     } else {
-        // Create new admin
+        // Create new admin entry without hardcoded credentials
         users.push(adminUser);
     }
 
-    // Add demo user if no users existed previously (fresh start simulation)
+    // Add demo user entry if fresh start, but without hardcoded credentials
     if (users.length === 1 && users[0].uid === 'admin-123') {
         const demoUser = {
             uid: 'user-123',
-            email: 'user@chronicle.com',
-            password: 'password123',
-            full_name: 'Demo User',
+            email: '',
+            password: '',
+            full_name: 'Member Identity',
             role: 'user',
             created_at: new Date().toISOString()
         };

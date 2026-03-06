@@ -52,7 +52,7 @@
                                     Address</label>
                                 <input type="email" id="email"
                                     class="w-full bg-transparent border-b border-slate-300 py-3 transition-all focus:border-slate-900 outline-none placeholder-slate-300 font-light"
-                                    placeholder="name@domain.com">
+                                    placeholder="">
                             </div>
 
                             <div class="space-y-2 relative">
@@ -159,12 +159,21 @@
 
                     const emailInput = document.getElementById('email');
                     const passwordInput = document.getElementById('password');
-                    const email = (emailInput && emailInput.value) ? emailInput.value.trim() : 'guest@thechronicle.com';
+                    const email = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
                     const password = (passwordInput && passwordInput.value) ? passwordInput.value : '';
 
-                    // Determine role based on credentials: admin credentials redirect to admin dashboard.
-                    const isAdmin = email.toLowerCase().includes('admin') || password.toLowerCase().includes('admin');
-                    const role = isAdmin ? 'admin' : 'user';
+                    if (!email || !password) {
+                        const errorMsg = document.getElementById('error-message');
+                        if (errorMsg) {
+                            errorMsg.textContent = 'Please enter your credentials.';
+                            errorMsg.classList.remove('hidden');
+                        }
+                        return false;
+                    }
+
+                    // Determine role based on credentials
+                    // For demo purposes, we will default to user unless the email is specifically for admin
+                    const role = email.toLowerCase().includes('admin') ? 'admin' : 'user';
 
                     // Save a mock session
                     const sessionData = {
@@ -188,11 +197,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
